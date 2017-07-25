@@ -1,0 +1,22 @@
+{
+  "name": "speciesvis",
+  "version": "0.0.1",
+  "description": "Species visualisation",
+  "directories": {
+    "example": "examples"
+  },
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aurélien Luciani <luciani@ebi.ac.uk> (https://github.com/aurel-l/)",
+  "devDependencies": {
+    "html-webpack-plugin": "^2.29.0",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "dependencies": {
+    "d3": "^4.10.0"
+  }
+}
