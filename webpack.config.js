@@ -18,20 +18,20 @@ module.exports = (env = { dev: true }) => ({
     env.dev ? new webpack.HotModuleReplacementPlugin() : null,
     env.dev
       ? new HtmlWebpackPlugin({
-        title: pkg.name,
-        template: path.join(__dirname, 'src', 'index.template.html'),
-        inject: false,
-      })
+          title: pkg.name,
+          template: path.join(__dirname, 'src', 'index.template.html'),
+          inject: false,
+        })
       : null,
   ].filter(x => x),
   devtool: '#inline-source-map',
   devServer: env.dev
     ? {
-      overlay: true,
-      hot: true,
-      watchOptions: {
-        ignored: /node_modules/,
-      },
-    }
+        overlay: true,
+        hot: true,
+        watchOptions: {
+          ignored: /node_modules/,
+        },
+      }
     : null,
 });

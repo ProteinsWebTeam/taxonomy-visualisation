@@ -1,15 +1,21 @@
 import * as d3 from 'd3';
 
+// extending d3's defaults
 import hierarchy from 'hierarchy';
+
 import collapse from 'collapse';
+import focus from 'focus';
+import toggle from 'toggle';
 
 import data from '../examples/2';
+
+window.d3 = d3;
 
 const svgEl = document.getElementById('root');
 
 const pixelRatio = window.pixelRatio || 1;
 
-let {width, height} = svgEl.getBoundingClientRect();
+let { width, height } = svgEl.getBoundingClientRect();
 [width, height] = [width * pixelRatio, height * pixelRatio];
 
 svgEl.setAttribute('width', width);
@@ -19,170 +25,203 @@ svgEl.setAttribute('viewBox', `0 0 ${width} ${height}`);
 const svg = d3.select(svgEl);
 const g = svg.append('g').attr('transform', 'translate(55, 0)');
 
-const tree = d3.tree()
-  .size([height - 40, width - 150]);
-  // .separation((a, b) => Math.log(a.data.count) + Math.log(b.data.count));
+const tree = d3.tree().size([height - 40, width - 150]);
+// .separation((a, b) => Math.log(a.data.count) + Math.log(b.data.count));
 
-const root = hierarchy(data).sort((a, b) => (b.data.count || b.data.hitcount) - (a.data.count || a.data.hitcount));
-let focused;
+const root = hierarchy(data).sort((a, b) => b.data.hitcount - a.data.hitcount);
 
-const allNodes = root.descendants();
+const global = {
+  root: root,
+  all: root.descendants(),
+};
 
-const maxCountBin = d3.max(allNodes, d => d3.max(d.data.hits || d.data.hitdist || []));
-const nBins = (root.data.hits || root.data.hitdist).length;
+const maxCountBin = d3.max(global.all, d => d3.max(d.data.hitdist));
+const nBins = root.data.hitdist.length;
 
-allNodes.forEach(d => {
-  d.inPath = true;
+global.all.forEach(d => {
   if (d.depth > 2) collapse(d);
 });
 
-const focus = d => {
-  if (!d) return;
-  try {
-    d3.event.stopPropagation();
-  } catch(_) {}
-  allNodes.forEach(n => n.inPath = n.focused = false);
-  d.focused = true;
-  d.ancestors().forEach(n => n.inPath = true);
-  d.descendants().forEach(n => n.inPath = true);
-  focused = d;
-  update();
-};
-
-const toggle = d => {
-  try {
-    d3.event.stopPropagation();
-  } catch(_) {}
-  if (d.children) {
-    collapse(d);
-  } else {
-    [d.children, d._children] = [d._children, d.children]
-  }
-  focus(focused);
-};
-
-// const focusRing = g.append('g')
-//   .attr('class', 'focus-ring')
-//   .attr('opacity', 0);
-
-function update() {
+const updateLinks = () => {
   // Each link
-  const link = g.selectAll('.link').data(
-    tree(root).links(),
-    ({source, target}) => `${source.data.id}-${target.data.id}`
-  )
-    .attr('class', ({source, target}) => (
-      `link${(source.inPath && target.inPath) ? ' in-path' : ''}`
-    ));
+  const link = g
+    .selectAll('.link')
+    .data(tree(global.root).links(), ({ target: { data: { id } } }) => id);
 
   // Link enter
-  link.enter().append('path')
-    .attr('class', ({source, target}) => (
-      `link${(source.inPath && target.inPath) ? ' in-path' : ''}`
-    ))
-    .attr('d', d3.linkHorizontal().x(d => d.y).y(d => d.x))
+  link
+    .enter()
+    .append('path')
     .attr('opacity', 0)
+    // Link enter + update
+    .merge(link)
+    .attr(
+      'class',
+      ({ target: { inPath } }) => `link${inPath ? ' in-path' : ''}`,
+    )
+    .attr('fill', 'none')
     .transition()
+    .attr('d', d3.linkHorizontal().x(({ y }) => y).y(({ x }) => x))
+    .attr('stroke', ({ target: { inPath } }) => (inPath ? '#a24' : 'steelblue'))
+    .attr('stroke-width', ({ target: { inPath } }) => (inPath ? 2 : 1))
     .attr('opacity', 1);
-
-  // Link update
-  link.transition().attr('d', d3.linkHorizontal().x(d => d.y).y(d => d.x));
 
   // Link exit
   link.exit().remove();
+};
 
-  // Focus ring
-  const focusRing = g.selectAll('.focus-ring').data([focused]);
-  focusRing.enter().append('circle').attr('class', 'focus-ring')
-    .attr('r', d => Math.log(d.data.count || d.data.hitcount) + 1 + 5)
-    .attr('transform', d => `translate(${d.y || 0},${d.x || 0})`);
-  focusRing.transition().ease(d3.easeElastic.period(1))
-    .attr('r', d => Math.log(d.data.count || d.data.hitcount) + 1 + 5)
-    .attr('transform', d => `translate(${d.y || 0},${d.x || 0})`);
+const updateFocusRing = () => {
+  // Each focus ring (only ever going to be one)
+  const focusRing = g.selectAll('.focus-ring').data([global.focused]);
 
+  // Focus ring enter
+  focusRing
+    .enter()
+    .append('circle')
+    .attr('class', 'focus-ring')
+    .attr('fill', '#a24')
+    .attr('transform', ({ x, y }) => `translate(${y},${x})`)
+    // Focus ring enter + update
+    .merge(focusRing)
+    .transition()
+    .ease(d3.easeElastic.period(1))
+    .attr('r', ({ data: { hitcount = 1 } }) => Math.log(hitcount) + 1 + 5)
+    .attr('transform', ({ x, y }) => `translate(${y},${x})`);
+};
+
+const updateNodes = () => {
   // Each node
-  const node = g.selectAll('.node').data(root.descendants(), d => d.data.id)
-    .attr('class', d => `node${d.focused ? ' focused' : ''}`);
+  const node = g
+    .selectAll('.node')
+    .data(global.root.descendants(), ({ data: { id } }) => id);
 
   // Node enter
-  const nodeEnter = node.enter();
+  const nodeG = node
+    .enter()
+    .append('g')
+    .attr('opacity', 0)
+    .attr('transform', ({ x, y }) => `translate(${y},${x})`)
+    // Event listeners
+    .on('click', node => {
+      focus(global, node);
+      update();
+    })
+    .on('dblclick', node => {
+      toggle(node);
+      update();
+    });
+  // Node enter + update
+  nodeG
+    .merge(node)
+    .attr('class', ({ focused }) => `node${focused ? ' focused' : ''}`)
+    .style('cursor', 'pointer')
+    .transition()
+    .attr('opacity', 1)
+    .attr('transform', d => `translate(${d.y},${d.x})`);
 
-  const nodeG = nodeEnter.append('g')
-    .attr('class', d => `node${d.focused ? ' focused' : ''}`)
-    .attr('transform', d => `translate(${d.y},${d.x})`)
-    .on('click', focus)
-    .on('dblclick', toggle);
-  nodeG.attr('opacity', 0).transition().attr('opacity', 1);
-  nodeG.append('circle')
-    .attr('r', d => Math.log(d.data.count || d.data.hitcount) + 1);
-  const nodeGG = nodeG.append('g')
-    .attr('transform', d => `translate(0,${d.depth % 2 ? 10 : -8})`);
-  const text = nodeGG.append('text')
+  nodeG
+    .append('circle')
+    .attr('r', ({ data: { hitcount = 1 } }) => Math.log(hitcount) + 1)
+    .attr('fill', 'steelblue');
+  const nodeGG = nodeG
+    .append('g')
+    .attr('transform', ({ depth }) => `translate(0,${depth % 2 ? 10 : -8})`);
+  const text = nodeGG
+    .append('text')
     .attr('y', 4)
-    .style('text-anchor', 'middle');
+    .attr('font-size', '0.8em')
+    .attr('text-anchor', 'middle')
+    .style(
+      'text-shadow',
+      '0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff',
+    );
   text.append('tspan').attr('class', 'label');
-  text.append('tspan').attr('class', 'arrow')
-    .on('click', toggle);
-  const hits = nodeGG.append('g').attr('class', 'hits')
+  text.append('tspan').attr('class', 'arrow').on('click', node => {
+    toggle(node);
+    update();
+  });
+  const hits = nodeGG
+    .append('g')
+    .attr('class', 'hits')
     .attr('transform', 'scale(1, -1)');
-  hits.append('rect')
+  hits
+    .append('rect')
     .attr('class', 'hits-bg')
+    .attr('fill', '#fff')
+    .attr('opacity', 0.5)
     .attr('x', -nBins)
     .attr('y', -20)
     .attr('width', nBins * 2)
     .attr('height', 10);
-  hits.selectAll('.bin').data(d => d.data.hits || d.data.hitdist)
-    .enter().append('rect')
+  hits
+    .selectAll('.bin')
+    .data(({ data: { hitdist = [] } }) => hitdist)
+    .enter()
+    .append('rect')
     .attr('class', 'bin')
+    .attr('fill', '#a24')
     .attr('x', (_, i) => i * 2 - nBins)
     .attr('y', -20)
     .attr('width', 2)
-    .attr('height', d => d * 10 / maxCountBin);
-
-  // Node update
-  node.transition().attr('transform', d => `translate(${d.y},${d.x})`);
+    .attr('height', datum => datum * 10 / maxCountBin);
 
   // Node exit
   node.exit().remove();
 
   // get labels
-  g.selectAll('.label')
-    .text(d => `${d.data.name} (${d.data.count || d.data.hitcount})`);
-  g.selectAll('.arrow').text(d => {
-    return d._children ? ' →' : ''
-  });
+  g
+    .selectAll('.label')
+    .text(
+      ({ data: { name, hitcount } }) =>
+        `${name}${typeof hitcount === 'undefined' ? '' : ` (${hitcount})`}`,
+    );
+  g.selectAll('.arrow').text(({ _children }) => (_children ? ' →' : ''));
 };
 
-// move focus according to keyboard
-svgEl.addEventListener('keydown', e => {
+const update = () => {
+  updateLinks();
+  updateFocusRing();
+  updateNodes();
+};
+
+const keyDownEventListener = e => {
   switch (e.key) {
     case 'ArrowDown':
       // Focus next sibling
-      focus(focused.sibling(1));
+      focus(global, global.focused.sibling(1));
+      update();
       break;
     case 'ArrowUp':
       // Focus previous sibling
-      focus(focused.sibling(-1));
+      focus(global, global.focused.sibling(-1));
+      update();
       break;
     case 'ArrowLeft':
       // Focus parent
-      focus(focused.parent);
+      focus(global, global.focused.parent);
+      update();
       break;
     case 'ArrowRight':
       // If collapsed, open
-      if (focused._children) {
-        [focused.children, focused._children] = [focused._children, null];
+      if (global.focused._children) {
+        toggle(global, global.focused);
       }
       // Focus first child
-      focus(focused.children && focused.children[0]);
+      focus(global, global.focused.children && global.focused.children[0]);
+      update();
       break;
     case 'Enter':
-      toggle(focused);
+      toggle(global, global.focused);
+      update();
       break;
     default:
       return;
   }
   e.preventDefault();
-});
+};
 
-focus(root);
+// move focus according to keyboard
+svgEl.addEventListener('keydown', keyDownEventListener);
+
+focus(global, global.root);
+update();

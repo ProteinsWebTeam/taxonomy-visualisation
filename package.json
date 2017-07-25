@@ -8,11 +8,24 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "prettier --single-quote --trailing-comma all --write",
+        "git add"
+      ]
+    }
   },
   "author": "Aurélien Luciani <luciani@ebi.ac.uk> (https://github.com/aurel-l/)",
   "devDependencies": {
+    "flow": "^0.2.3",
     "html-webpack-plugin": "^2.29.0",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.2",
+    "prettier": "^1.5.3",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.6.1"
   },

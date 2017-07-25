@@ -21,63 +21,6 @@
         font-family: Arial;
         border: 1px solid black;
       }
-
-      .link {
-        fill: none;
-        stroke: #a24;
-        stroke-opacity: 0.5;
-        stroke-width: 1px;
-      }
-
-      .link.in-path {
-        stroke: steelblue;
-        stroke-width: 2px;
-      }
-
-      .node {
-        cursor: pointer;
-      }
-
-      .node circle {
-        fill: #a24;
-      }
-
-      @keyframes focus-effect {
-        0%, 100% {
-          transform: scale(1);
-        }
-
-        50% {
-          transform: scale(2);
-        }
-      }
-
-      .focus-ring {
-        fill: #a24
-      }
-
-      .node.focused circle {
-        fill: steelblue;
-        animation: focus-effect 1s 1;
-      }
-
-      .node .hits-bg {
-        fill: white;
-        opacity: 0.5;
-      }
-
-      .node .bin {
-        fill: #a24;
-      }
-
-      .node.focused .bin {
-        fill: steelblue;
-      }
-
-      text {
-        font-size: 0.8em;
-        text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
-      }
     </style>
   </head>
   <body>
