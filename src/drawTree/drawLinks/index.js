@@ -2,7 +2,7 @@ import { linkHorizontal } from 'd3';
 
 export default global => {
   // Each link
-  const link = global.domRoot
+  const link = global.selection.tree
     .selectAll('.link')
     .data(
       global.tree(global.root).links(),

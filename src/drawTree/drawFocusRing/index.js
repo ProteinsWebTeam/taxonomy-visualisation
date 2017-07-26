@@ -1,8 +1,8 @@
 import { easeElastic } from 'd3';
 
-export default ({ domRoot, focused }) => {
+export default ({ selection: { tree }, focused }) => {
   // Each focus ring (only ever going to be one)
-  const focusRing = domRoot.selectAll('.focus-ring').data([focused]);
+  const focusRing = tree.selectAll('.focus-ring').data([focused]);
 
   // Focus ring enter
   focusRing

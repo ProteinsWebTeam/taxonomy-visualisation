@@ -5,7 +5,7 @@ import draw from 'drawTree';
 
 export default global => {
   // Each node
-  const node = global.domRoot
+  const node = global.selection.tree
     .selectAll('.node')
     .data(global.root.descendants(), ({ data: { id } }) => id);
 
@@ -21,7 +21,7 @@ export default global => {
       draw(global);
     })
     .on('dblclick', node => {
-      toggle(node);
+      toggle(global, node);
       draw(global);
     });
   // Node enter + update
@@ -59,53 +59,53 @@ export default global => {
   label.append('tspan').attr('class', 'name');
   // Label arrow
   label.append('tspan').attr('class', 'arrow').on('click', node => {
-    toggle(node);
+    toggle(global, node);
     draw(global);
   });
 
-  // Node info histogram group
-  const hits = nodeInfo
-    .append('g')
-    .attr('class', 'hits')
+  if (global.root.data.hitdist && global.root.data.hitdist.length) {
+    // Node info histogram group
+    const hits = nodeInfo.append('g').attr('class', 'hits')// mirror transform
     .attr('transform', 'scale(1, -1)');
-  // Histogram background
-  hits
-    .append('rect')
-    .attr('class', 'hits-bg')
-    .attr('fill', '#fff')
-    .attr('opacity', 0.5)
-    .attr('x', -global.nBins)
-    .attr('y', -20)
-    .attr('width', global.nBins * 2)
-    .attr('height', 10);
-  // Histogram bars
-  const bins = hits
-    .selectAll('.bin')
-    .data(({ focused, data: { hitdist = [] } }) =>
-      hitdist.map(bin => ({ focused, bin })),
-    );
-  bins
-    .enter()
-    .append('rect')
-    .attr('class', 'bin')
-    .attr('x', (_, index) => index * 2 - global.nBins)
-    .attr('y', -20)
-    .attr('width', 2)
-    .attr('height', ({ bin }) => bin * 10 / global.maxCountBin)
-    .attr('fill', 'steelblue');
+    // Histogram background
+    hits
+      .append('rect')
+      .attr('class', 'hits-bg')
+      .attr('fill', '#fff')
+      .attr('opacity', 0.5)
+      .attr('x', -global.nBins)
+      .attr('y', -20)
+      .attr('width', global.nBins * 2)
+      .attr('height', 10);
+    // Histogram bars
+    const bins = hits
+      .selectAll('.bin')
+      .data(({ focused, data: { hitdist = [] } }) =>
+        hitdist.map(bin => ({ focused, bin })),
+      );
+    bins
+      .enter()
+      .append('rect')
+      .attr('class', 'bin')
+      .attr('x', (_, index) => index * 2 - global.nBins)
+      .attr('y', -20)
+      .attr('width', 2)
+      .attr('height', ({ bin }) => bin * 10 / global.maxCountBin)
+      .attr('fill', 'steelblue');
+  }
 
   // Node exit
   node.exit().remove();
 
   // Get label names
-  global.domRoot
+  global.selection.tree
     .selectAll('.label > .name')
     .text(
       ({ data: { name, hitcount } }) =>
         `${name}${typeof hitcount === 'undefined' ? '' : ` (${hitcount})`}`,
     );
   // Get label arrows
-  global.domRoot
+  global.selection.tree
     .selectAll('.label > .arrow')
     .text(({ _children }) => (_children ? ' →' : ''));
 };
