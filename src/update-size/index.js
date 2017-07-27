@@ -1,17 +1,25 @@
-const getSize = svgEl => {
+const getSize = element => {
   const pixelRatio = window.pixelRatio || 1;
 
-  let { width, height } = svgEl.getBoundingClientRect();
+  let { width, height } = element.getBoundingClientRect();
 
   [width, height] = [width * pixelRatio, height * pixelRatio];
 
   return {
+    pixelRatio,
     width: width * pixelRatio,
     height: height * pixelRatio,
   };
 };
 
-export default (global, treeSelection) => {
+export const updateFocusSize = focusSelection => {
+  if (!focusSelection) return;
+  const { pixelRatio, height } = getSize(focusSelection.node());
+
+  focusSelection.select('svg').style('width', 2 * height / pixelRatio);
+};
+
+export const updateTreeSize = (treeSelection, global) => {
   if (!treeSelection) return;
   const { width, height } = getSize(treeSelection.node());
 

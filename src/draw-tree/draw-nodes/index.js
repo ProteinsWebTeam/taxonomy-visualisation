@@ -1,7 +1,7 @@
 import toggle from 'toggle';
 import focus from 'focus';
 
-import draw from 'drawTree';
+import draw from 'draw';
 
 export default global => {
   // Each node
@@ -65,8 +65,10 @@ export default global => {
 
   if (global.root.data.hitdist && global.root.data.hitdist.length) {
     // Node info histogram group
-    const hits = nodeInfo.append('g').attr('class', 'hits')// mirror transform
-    .attr('transform', 'scale(1, -1)');
+    const hits = nodeInfo
+      .append('g')
+      .attr('class', 'hits') // mirror transform
+      .attr('transform', 'scale(1,-1)');
     // Histogram background
     hits
       .append('rect')
@@ -80,9 +82,10 @@ export default global => {
     // Histogram bars
     const bins = hits
       .selectAll('.bin')
-      .data(({ focused, data: { hitdist = [] } }) =>
-        hitdist.map(bin => ({ focused, bin })),
-      );
+      // .data(({ focused, data: { hitdist = [] } }) =>
+      //   hitdist.map(bin => ({ focused, bin })),
+      // );
+      .data(({ data: { hitdist = [] } }) => hitdist);
     bins
       .enter()
       .append('rect')
@@ -90,7 +93,8 @@ export default global => {
       .attr('x', (_, index) => index * 2 - global.nBins)
       .attr('y', -20)
       .attr('width', 2)
-      .attr('height', ({ bin }) => bin * 10 / global.maxCountBin)
+      // .attr('height', ({ bin }) => bin * 10 / global.maxCountBin)
+      .attr('height', bin => bin * 10 / global.maxCountBin)
       .attr('fill', 'steelblue');
   }
 

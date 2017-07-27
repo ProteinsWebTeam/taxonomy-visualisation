@@ -3,12 +3,12 @@ import { max, tree as d3Tree, select } from 'd3';
 // extending d3's defaults
 import hierarchy from 'hierarchy';
 
-import updateSize from 'update-size';
+import { updateFocusSize, updateTreeSize } from 'update-size';
 import collapse from 'collapse';
 import focus from 'focus';
 import toggle from 'toggle';
 
-import draw from 'drawTree';
+import draw from 'draw';
 
 export default class SpeciesVisualisation {
   constructor(data, { tree, focus } = {}) {
@@ -113,15 +113,18 @@ export default class SpeciesVisualisation {
 
   // tree
   set tree(element) {
-    if (!element) return;
+    if (!element) {
+      this._global.selection.tree = null;
+      return;
+    }
     this._global.selection.tree = select(element).attr('tabindex', 0);
     // move focus according to keyboard
     element.addEventListener('keydown', this._keyDownEventListener);
-    // resize according to window size
-    updateSize(this._global, this._global.selection.tree);
+    // resize according to available size
+    updateTreeSize(this._global.selection.tree, this._global);
     // ... and corresponding resizes
     window.addEventListener('resize', () => {
-      updateSize(this._global, this._global.selection.tree);
+      updateTreeSize(this._global.selection.tree, this._global);
       draw(this._global);
     });
 
@@ -134,8 +137,37 @@ export default class SpeciesVisualisation {
 
   // focus
   set focus(element) {
-    if (!element) return;
-    this._global.selection.focus = select(element);
+    if (!element) {
+      this._global.selection.focus = null;
+      return;
+    }
+    const root = (this._global.selection.focus = select(element));
+
+    const desc = root
+      .append('div')
+      .attr('class', 'desc')
+      .style('display', 'inline-block');
+    desc.append('p').attr('class', 'lineage').append('span').text('Lineage:');
+    desc.append('p').attr('class', 'name');
+    // Histogram
+    root
+      .append('svg')
+      .attr('class', 'hits')
+      .attr('width', 200)
+      .attr('height', 100)
+      .attr('viewBox', '0 0 200 100')
+      .style('float', 'right')
+      .style('height', '100%')
+      // Background
+      .append('rect')
+      .attr('class', 'hits-bg')
+      .attr('fill', '#fff')
+      .attr('width', 200)
+      .attr('height', 100);
+
+    // resize according to available size
+    updateFocusSize(this._global.selection.focus);
+
     draw(this._global);
   }
 
