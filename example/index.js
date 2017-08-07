@@ -8,6 +8,10 @@ const visualisation = new SpeciesVisualisation(data);
 visualisation.tree = document.getElementById('tree-root');
 visualisation.focus = document.getElementById('focus-root');
 
+visualisation.addEventListener('focus', event => {
+  console.log('focus event', event.target, event.detail);
+});
+
 // Other way to do it:
 // const visualisation = new SpeciesVisualisation(
 //   data,

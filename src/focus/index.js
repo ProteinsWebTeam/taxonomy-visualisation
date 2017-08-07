@@ -10,6 +10,17 @@ const setFocus = node => {
   node.descendants().forEach(setFocusPath);
 };
 
+const dispatchFocus = ({ selection, instance, focused: { data } }) => {
+  for (const sel of Object.values(selection)) {
+    if (!sel) continue;
+    const node = sel.node();
+    node.dispatchEvent(new CustomEvent('focus', { detail: data }));
+    for (const listeners of instance._listenersPerType.get('focus')) {
+      listeners(new CustomEvent('focus', { detail: data }));
+    }
+  }
+};
+
 export default (global, node) => {
   if (!node) return;
   try {
@@ -18,4 +29,5 @@ export default (global, node) => {
   global.all.forEach(removeFocus);
   setFocus(node);
   global.focused = node;
+  dispatchFocus(global);
 };

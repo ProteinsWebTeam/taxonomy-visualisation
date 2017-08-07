@@ -1,6 +1,8 @@
 const WIDTH = 200;
 const HEIGHT = 100;
 
+const DELAY_OFFSET = 10;
+
 export default ({ selection: { focus }, focused, nBins, maxCountBin }) => {
   const binWidth = WIDTH / nBins;
 
@@ -21,5 +23,6 @@ export default ({ selection: { focus }, focused, nBins, maxCountBin }) => {
     .attr('y', HEIGHT)
     .merge(bins)
     .transition()
+    .delay((_, index) => index * DELAY_OFFSET)
     .attr('y', bin => HEIGHT - bin * HEIGHT / maxCountBin);
 };

@@ -18,7 +18,12 @@ export default class SpeciesVisualisation {
         tree: null,
         focus: null,
       },
+      instance: this,
     };
+    this._listenersPerType = new Map([
+      ['click', new Set()],
+      ['focus', new Set()],
+    ]);
     // call the setters, this is on purpose to share sanity checking logic
     this.data = data;
     this.tree = tree;
@@ -27,6 +32,9 @@ export default class SpeciesVisualisation {
     // bind methods to this instance
     this._keyDownEventListener = this._keyDownEventListener.bind(this);
     this.redraw = this.redraw.bind(this);
+    this.addEventListener = this.addEventListener.bind(this);
+    this.removeEventListener = this.removeEventListener.bind(this);
+    this.cleanup = this.cleanup.bind(this);
   }
 
   // private methods
@@ -132,7 +140,7 @@ export default class SpeciesVisualisation {
   }
 
   get tree() {
-    if (this._global.select.tree) return this._global.select.tree.node();
+    if (this._global.selection.tree) return this._global.selection.tree.node();
   }
 
   // focus
@@ -172,6 +180,26 @@ export default class SpeciesVisualisation {
   }
 
   get focus() {
-    if (this._global.select.tree) return this._global.select.tree.node();
+    if (this._global.selection.tree) return this._global.selection.tree.node();
+  }
+
+  addEventListener(type, fun) {
+    const listeners = this._listenersPerType.get(type);
+    if (!listeners) throw new Error(`'${type}' is not a supported event type`);
+    if (typeof fun !== 'function') throw new Error('Did not pass a function');
+    listeners.add(fun);
+  }
+
+  removeEventListener(type, fun) {
+    const listeners = this._listenersPerType.get(type);
+    if (!listeners) throw new Error(`'${type}' is not a supported event type`);
+    if (typeof fun !== 'function') throw new Error('Did not pass a function');
+    listeners.delete(fun);
+  }
+
+  cleanup() {
+    for (const listeners of this._listenersPerType) listeners.clear();
+    // remove references
+    this._global.instance = null;
   }
 }
