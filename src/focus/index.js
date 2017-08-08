@@ -1,5 +1,3 @@
-import { event } from 'd3';
-
 const removeFocus = node => (node.inPath = node.focused = false);
 
 const setFocusPath = node => (node.inPath = true);
@@ -11,11 +9,13 @@ const setFocus = node => {
 };
 
 const dispatchFocus = ({ selection, instance, focused: { data } }) => {
+  // Emit event for the DOM nodes
   for (const sel of Object.values(selection)) {
     if (!sel) continue;
     const node = sel.node();
     node.dispatchEvent(new CustomEvent('focus', { detail: data }));
   }
+  // Emit event from the instance registrations
   for (const listeners of instance._listenersPerType.get('focus')) {
     listeners(new CustomEvent('focus', { detail: data }));
   }
@@ -23,9 +23,6 @@ const dispatchFocus = ({ selection, instance, focused: { data } }) => {
 
 export default (global, node) => {
   if (!node) return;
-  try {
-    event.stopPropagation();
-  } catch (_) {}
   global.all.forEach(removeFocus);
   setFocus(node);
   global.focused = node;

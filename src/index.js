@@ -12,15 +12,20 @@ import getMaxDepth from 'get-max-depth';
 
 import draw from 'draw';
 
+const DEFAULT_INITIAL_MAX_NODES = 10;
+
 export default class SpeciesVisualisation {
-  constructor(data, { tree, focus, initialMaxNodes = 10 } = {}) {
+  constructor(
+    data,
+    { tree, focus, initialMaxNodes = DEFAULT_INITIAL_MAX_NODES } = {},
+  ) {
     this._global = {
       tree: d3Tree(),
       selection: {
         tree: null,
         focus: null,
       },
-      initialMaxNodes,
+      initialMaxNodes: +initialMaxNodes || DEFAULT_INITIAL_MAX_NODES,
       instance: this,
     };
     this._listenersPerType = new Map([
@@ -80,13 +85,19 @@ export default class SpeciesVisualisation {
       default:
         return;
     }
-    e.preventDefault();
   }
 
   // public methods
   // 'redraw' forces the redrawing of the graphics
   redraw() {
     draw(this._global);
+  }
+
+  getDataFromEvent(event) {
+    if (!event.target) return null;
+    const node = select(event.target).datum();
+    if (!node) return null;
+    return node.data;
   }
 
   // getters/setters
@@ -96,7 +107,13 @@ export default class SpeciesVisualisation {
 
     this._global.data = data || {};
     this._global.root = hierarchy(this._global.data);
+    // Specific cases
+    // A hit count has been defined
+    if (this._global.root.data.hitcount) {
+      this._global.root.sort((a, b) => b.data.hitcount - a.data.hitcount);
+    }
     this._global.all = this._global.root.descendants();
+    // Initial node collapse
     const maxDepth = getMaxDepth(
       getDepthCounts(this._global.all),
       this._global.initialMaxNodes,
@@ -109,11 +126,6 @@ export default class SpeciesVisualisation {
     focus(this._global, this._global.root);
 
     // Specific cases
-    // A hit count has been defined
-    if (this._global.root.data.hitcount) {
-      this._global.sortingFn = root =>
-        root.sort((a, b) => b.data.hitcount - a.data.hitcount);
-    }
     // A hit distribution has been defined
     if (
       this._global.root.data.hitdist &&

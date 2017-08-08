@@ -12,6 +12,10 @@ visualisation.addEventListener('focus', event => {
   console.log('focus event', event.target, event.detail);
 });
 
+visualisation.focus.addEventListener('click', event =>
+  console.log(visualisation.getDataFromEvent(event)),
+);
+
 // Other way to do it:
 // const visualisation = new SpeciesVisualisation(
 //   data,
