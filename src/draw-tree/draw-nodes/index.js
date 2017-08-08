@@ -60,7 +60,7 @@ export default global => {
   // Label arrow
   label.append('tspan').attr('class', 'arrow').on('click', node => {
     toggle(global, node);
-    this.redraw();
+    global.instance.redraw();
   });
 
   if (global.root.data.hitdist && global.root.data.hitdist.length) {
