@@ -30,7 +30,10 @@ export default class SpeciesVisualisation {
     this.focus = focus;
 
     // bind methods to this instance
+    // private
     this._keyDownEventListener = this._keyDownEventListener.bind(this);
+    this._eventListenerCommon = this._eventListenerCommon.bind(this);
+    // public
     this.redraw = this.redraw.bind(this);
     this.addEventListener = this.addEventListener.bind(this);
     this.removeEventListener = this.removeEventListener.bind(this);
@@ -183,17 +186,20 @@ export default class SpeciesVisualisation {
     if (this._global.selection.tree) return this._global.selection.tree.node();
   }
 
-  addEventListener(type, fun) {
+  _eventListenerCommon(type, fun) {
+    if (typeof fun !== 'function') throw new Error('Did not pass a function');
     const listeners = this._listenersPerType.get(type);
     if (!listeners) throw new Error(`'${type}' is not a supported event type`);
-    if (typeof fun !== 'function') throw new Error('Did not pass a function');
+    return listeners;
+  }
+
+  addEventListener(type, fun) {
+    const listeners = this._eventListenerCommon(type, fun);
     listeners.add(fun);
   }
 
   removeEventListener(type, fun) {
-    const listeners = this._listenersPerType.get(type);
-    if (!listeners) throw new Error(`'${type}' is not a supported event type`);
-    if (typeof fun !== 'function') throw new Error('Did not pass a function');
+    const listeners = this._eventListenerCommon(type, fun);
     listeners.delete(fun);
   }
 
