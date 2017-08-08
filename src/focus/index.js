@@ -15,9 +15,9 @@ const dispatchFocus = ({ selection, instance, focused: { data } }) => {
     if (!sel) continue;
     const node = sel.node();
     node.dispatchEvent(new CustomEvent('focus', { detail: data }));
-    for (const listeners of instance._listenersPerType.get('focus')) {
-      listeners(new CustomEvent('focus', { detail: data }));
-    }
+  }
+  for (const listeners of instance._listenersPerType.get('focus')) {
+    listeners(new CustomEvent('focus', { detail: data }));
   }
 };
 
