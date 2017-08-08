@@ -1,6 +1,11 @@
 import drawFocus from 'draw-focus';
 import drawTree from 'draw-tree';
 
+const sort = global => {
+  if (!global.sortingFn) return;
+  global.sortingFn(global.root);
+};
+
 const draw = global => {
   if (global.selection.focus) drawFocus(global);
   if (global.selection.tree) drawTree(global);
@@ -13,6 +18,7 @@ export default global => {
   if (isDrawPlanned) return;
   isDrawPlanned = true;
   requestAnimationFrame(() => {
+    sort(global);
     draw(global);
     isDrawPlanned = false;
   });

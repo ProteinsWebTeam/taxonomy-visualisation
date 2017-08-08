@@ -1,8 +1,6 @@
 import toggle from 'toggle';
 import focus from 'focus';
 
-import draw from 'draw';
-
 export default global => {
   // Each node
   const node = global.selection.tree
@@ -18,11 +16,11 @@ export default global => {
     // Event listeners
     .on('click', node => {
       focus(global, node);
-      draw(global);
+      global.instance.redraw();
     })
     .on('dblclick', node => {
       toggle(global, node);
-      draw(global);
+      global.instance.redraw();
     });
   // Node enter + update
   nodeEnter
@@ -60,7 +58,7 @@ export default global => {
   // Label arrow
   label.append('tspan').attr('class', 'arrow').on('click', node => {
     toggle(global, node);
-    draw(global);
+    this.redraw();
   });
 
   if (global.root.data.hitdist && global.root.data.hitdist.length) {

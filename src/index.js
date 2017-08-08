@@ -7,17 +7,20 @@ import { updateFocusSize, updateTreeSize } from 'update-size';
 import collapse from 'collapse';
 import focus from 'focus';
 import toggle from 'toggle';
+import getDepthCounts from 'get-depth-counts';
+import getMaxDepth from 'get-max-depth';
 
 import draw from 'draw';
 
 export default class SpeciesVisualisation {
-  constructor(data, { tree, focus } = {}) {
+  constructor(data, { tree, focus, initialMaxNodes = 10 } = {}) {
     this._global = {
       tree: d3Tree(),
       selection: {
         tree: null,
         focus: null,
       },
+      initialMaxNodes,
       instance: this,
     };
     this._listenersPerType = new Map([
@@ -46,17 +49,17 @@ export default class SpeciesVisualisation {
       case 'ArrowDown':
         // Focus next sibling
         focus(this._global, this._global.focused.sibling(1));
-        draw(this._global);
+        this.redraw();
         break;
       case 'ArrowUp':
         // Focus previous sibling
         focus(this._global, this._global.focused.sibling(-1));
-        draw(this._global);
+        this.redraw();
         break;
       case 'ArrowLeft':
         // Focus parent
         focus(this._global, this._global.focused.parent);
-        draw(this._global);
+        this.redraw();
         break;
       case 'ArrowRight':
         // If collapsed, open
@@ -68,11 +71,11 @@ export default class SpeciesVisualisation {
           this._global,
           this._global.focused.children && this._global.focused.children[0],
         );
-        draw(this._global);
+        this.redraw();
         break;
       case 'Enter':
         toggle(this._global, this._global.focused);
-        draw(this._global);
+        this.redraw();
         break;
       default:
         return;
@@ -89,14 +92,18 @@ export default class SpeciesVisualisation {
   // getters/setters
   // data
   set data(data) {
-    if (Array.isArray(data)) throw new Error('input data cant be an array');
+    if (Array.isArray(data)) throw new Error('Input data cant be an array');
 
     this._global.data = data || {};
     this._global.root = hierarchy(this._global.data);
     this._global.all = this._global.root.descendants();
-    this._global.all.forEach(node => {
-      if (node.depth > 2) collapse(node);
-    });
+    const maxDepth = getMaxDepth(
+      getDepthCounts(this._global.all),
+      this._global.initialMaxNodes,
+    );
+    for (const node of this._global.all) {
+      if (node.depth >= maxDepth) collapse(node);
+    }
 
     // Set focus to root
     focus(this._global, this._global.root);
@@ -104,7 +111,8 @@ export default class SpeciesVisualisation {
     // Specific cases
     // A hit count has been defined
     if (this._global.root.data.hitcount) {
-      this._global.root.sort((a, b) => b.data.hitcount - a.data.hitcount);
+      this._global.sortingFn = root =>
+        root.sort((a, b) => b.data.hitcount - a.data.hitcount);
     }
     // A hit distribution has been defined
     if (
@@ -136,10 +144,10 @@ export default class SpeciesVisualisation {
     // ... and corresponding resizes
     window.addEventListener('resize', () => {
       updateTreeSize(this._global.selection.tree, this._global);
-      draw(this._global);
+      this.redraw();
     });
 
-    draw(this._global);
+    this.redraw();
   }
 
   get tree() {
@@ -179,7 +187,7 @@ export default class SpeciesVisualisation {
     // resize according to available size
     updateFocusSize(this._global.selection.focus);
 
-    draw(this._global);
+    this.redraw();
   }
 
   get focus() {
