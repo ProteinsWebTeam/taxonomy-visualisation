@@ -1,5 +1,7 @@
 import { easeElastic } from 'd3';
 
+import { colors } from 'theme';
+
 export default ({ selection: { tree }, focused }) => {
   // Each focus ring (only ever going to be one)
   const focusRing = tree.selectAll('.focus-ring').data([focused]);
@@ -9,7 +11,7 @@ export default ({ selection: { tree }, focused }) => {
     .enter()
     .append('circle')
     .attr('class', 'focus-ring')
-    .attr('fill', '#a24')
+    .attr('fill', colors.focus)
     .attr('transform', ({ x, y }) => `translate(${y},${x})`)
     // Focus ring enter + update
     .merge(focusRing)

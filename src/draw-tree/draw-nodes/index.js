@@ -1,6 +1,8 @@
 import toggle from 'toggle';
 import focus from 'focus';
 
+import { colors } from 'theme';
+
 export default global => {
   // Each node
   const node = global.selection.tree
@@ -35,7 +37,7 @@ export default global => {
   nodeEnter
     .append('circle')
     .attr('r', ({ data: { hitcount = 1 } }) => Math.log(hitcount) + 1)
-    .attr('fill', 'steelblue');
+    .attr('fill', colors.off);
 
   // Node info group
   const nodeInfo = nodeEnter
@@ -93,7 +95,7 @@ export default global => {
       .attr('width', 2)
       // .attr('height', ({ bin }) => bin * 10 / global.maxCountBin)
       .attr('height', bin => bin * 10 / global.maxCountBin)
-      .attr('fill', 'steelblue');
+      .attr('fill', colors.off);
   }
 
   // Node exit

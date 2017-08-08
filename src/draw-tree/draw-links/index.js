@@ -1,5 +1,7 @@
 import { linkHorizontal } from 'd3';
 
+import { colors } from 'theme';
+
 export default global => {
   // Each link
   const link = global.selection.tree
@@ -23,7 +25,10 @@ export default global => {
     .attr('fill', 'none')
     .transition()
     .attr('d', linkHorizontal().x(({ y }) => y).y(({ x }) => x))
-    .attr('stroke', ({ target: { inPath } }) => (inPath ? '#a24' : 'steelblue'))
+    .attr(
+      'stroke',
+      ({ target: { inPath } }) => colors[inPath ? 'focus' : 'off'],
+    )
     .attr('stroke-width', ({ target: { inPath } }) => (inPath ? 2 : 1))
     .attr('opacity', 1);
 

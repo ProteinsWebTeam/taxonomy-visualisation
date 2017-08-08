@@ -9,7 +9,7 @@ visualisation.tree = document.getElementById('tree-root');
 visualisation.focus = document.getElementById('focus-root');
 
 visualisation.addEventListener('focus', event => {
-  console.log('focus event', event.target, event.detail);
+  console.log('custom focus event', event.detail);
 });
 
 visualisation.focus.addEventListener('click', event =>

@@ -1,3 +1,5 @@
+import { colors } from 'theme';
+
 const WIDTH = 200;
 const HEIGHT = 100;
 
@@ -16,7 +18,7 @@ export default ({ selection: { focus }, focused, nBins, maxCountBin }) => {
     .enter()
     .append('rect')
     .attr('class', 'bin')
-    .attr('fill', 'steelblue')
+    .attr('fill', colors.off)
     .attr('x', (_, index) => index * binWidth)
     .attr('width', binWidth)
     .attr('height', HEIGHT)
