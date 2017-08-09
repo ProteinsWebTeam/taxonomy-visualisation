@@ -106,7 +106,7 @@ export default global => {
     .selectAll('.label > .name')
     .text(
       ({ data: { name, hitcount } }) =>
-        `${name}${typeof hitcount === 'undefined' ? '' : ` (${hitcount})`}`,
+        `${name}${typeof hitcount === 'undefined' ? '' : `\n(${hitcount})`}`,
     );
   // Get label arrows
   global.selection.tree

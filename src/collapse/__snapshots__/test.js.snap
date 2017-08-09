@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should collapse when passed valid trees 1`] = `Object {}`;
+
+exports[`Should collapse when passed valid trees 2`] = `
+Object {
+  "_children": Array [
+    Object {},
+  ],
+  "children": null,
+}
+`;
+
+exports[`Should collapse when passed valid trees 3`] = `
+Object {
+  "_children": Array [
+    Object {},
+    Object {},
+  ],
+  "children": null,
+}
+`;
+
+exports[`Should collapse when passed valid trees 4`] = `
+Object {
+  "_children": Array [
+    Object {
+      "_children": Array [
+        Object {},
+        Object {},
+      ],
+      "children": null,
+    },
+    Object {
+      "_children": Array [
+        Object {},
+      ],
+      "children": null,
+    },
+  ],
+  "children": null,
+}
+`;

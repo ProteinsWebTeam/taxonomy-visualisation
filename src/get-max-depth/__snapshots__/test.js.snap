@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getMaxDepth should return valid values 1`] = `0`;
+
+exports[`getMaxDepth should return valid values 2`] = `1`;
+
+exports[`getMaxDepth should return valid values 3`] = `5`;
+
+exports[`getMaxDepth should return valid values 4`] = `5`;
+
+exports[`getMaxDepth should return valid values 5`] = `0`;
+
+exports[`getMaxDepth should return valid values 6`] = `1`;
+
+exports[`getMaxDepth should return valid values 7`] = `3`;
+
+exports[`getMaxDepth should return valid values 8`] = `5`;
+
+exports[`getMaxDepth should return valid values 9`] = `0`;
+
+exports[`getMaxDepth should return valid values 10`] = `1`;
+
+exports[`getMaxDepth should return valid values 11`] = `1`;
+
+exports[`getMaxDepth should return valid values 12`] = `5`;
+
+exports[`getMaxDepth should return valid values 13`] = `0`;
+
+exports[`getMaxDepth should return valid values 14`] = `1`;
+
+exports[`getMaxDepth should return valid values 15`] = `1`;
+
+exports[`getMaxDepth should return valid values 16`] = `1`;
+
+exports[`getMaxDepth should return valid values 17`] = `0`;
+
+exports[`getMaxDepth should return valid values 18`] = `1`;
+
+exports[`getMaxDepth should return valid values 19`] = `1`;
+
+exports[`getMaxDepth should return valid values 20`] = `2`;

@@ -1,9 +1,10 @@
-import SpeciesVisualisation from 'index';
+/* eslint-disable no-console */
+import TaxonomyVisualisation from 'index';
 
 import data from './data/1';
 
 // One way to instantiate the visualisation:
-const visualisation = new SpeciesVisualisation(data, { initialMaxNodes: 10 });
+const visualisation = new TaxonomyVisualisation(data, { initialMaxNodes: 10 });
 // visualisation.data = data;
 visualisation.tree = document.getElementById('tree-root');
 visualisation.focus = document.getElementById('focus-root');

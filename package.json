@@ -1,34 +1,88 @@
 {
-  "name": "speciesvis",
+  "name": "taxonomy-visualisation",
   "version": "0.0.1",
-  "description": "Species visualisation",
+  "description": "Taxonomy visualisation",
   "directories": {
-    "example": "examples"
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProteinsWebTeam/taxonomy-visualisation.git"
   },
   "license": "GPL-3.0",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged"
+    "test": "npm run lint && npm run jest",
+    "precommit": "lint-staged",
+    "prebuild": "npm run clean",
+    "clean": "rimraf dist",
+    "lint": "eslint --ignore-path .gitignore .",
+    "jest": "jest --notify",
+    "build": "webpack --env.production"
   },
   "lint-staged": {
     "linters": {
       "*.js": [
+        "eslint --fix --ignore-path .gitignore",
         "prettier --single-quote --trailing-comma all --write",
         "git add"
       ]
     }
   },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "modules": false,
+          "loose": true,
+          "useBuiltIns": true,
+          "targets": {
+            "browsers": "last 1 version, > 10%"
+          }
+        }
+      ]
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "transform-es2015-modules-commonjs"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "verbose": true,
+    "rootDir": "src",
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 5,
+        "functions": 5,
+        "lines": 5,
+        "statements": 5
+      }
+    }
+  },
   "author": "Aurélien Luciani <luciani@ebi.ac.uk> (https://github.com/aurel-l/)",
   "devDependencies": {
-    "flow": "^0.2.3",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.4.1",
+    "eslint-config-prettier": "^2.3.0",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "lint-staged": "^4.0.3",
     "prettier": "^1.5.3",
-    "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "webpack": "^3.5.2",
+    "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
     "d3": "^4.10.0"

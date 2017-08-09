@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getDepthCount to return correct values 1`] = `
+Array [
+  1,
+  2,
+  3,
+  4,
+]
+`;
+
+exports[`getDepthCount to return correct values 2`] = `
+Array [
+  1,
+  2,
+  3,
+  1,
+]
+`;
+
+exports[`getDepthCount to return correct values 3`] = `
+Array [
+  1,
+  1,
+  1,
+  1,
+]
+`;
+
+exports[`getDepthCount to return correct values 4`] = `
+Array [
+  1,
+]
+`;
+
+exports[`getDepthCount to return correct values 5`] = `
+Array [
+  1,
+  2,
+  5,
+  1,
+]
+`;
