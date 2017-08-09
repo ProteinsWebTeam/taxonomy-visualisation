@@ -69,7 +69,7 @@ module.exports = (env = { dev: true }) => {
       },
       devtool: env.dev ? '#inline-source-map' : '#source-map',
     },
-    defaultConfig,
+    defaultConfig
   );
   // If in dev, return early with *one* config
   if (env.dev)
@@ -83,7 +83,7 @@ module.exports = (env = { dev: true }) => {
           },
         },
       },
-      configWithEnv,
+      configWithEnv
     );
   // Otherwise, return with an array of configs
   return [
@@ -94,7 +94,7 @@ module.exports = (env = { dev: true }) => {
       output: Object.assign({}, configWithEnv.output, {
         filename: configWithEnv.output.filename.replace(
           '.js',
-          '-without-d3.js',
+          '-without-d3.js'
         ),
       }),
       externals: { d3: 'd3' },

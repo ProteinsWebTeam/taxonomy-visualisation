@@ -2,6 +2,10 @@
   "name": "taxonomy-visualisation",
   "version": "0.0.1",
   "description": "Taxonomy visualisation",
+  "files": [
+    "dist",
+    "src"
+  ],
   "directories": {
     "example": "example"
   },
@@ -9,12 +13,25 @@
     "type": "git",
     "url": "https://github.com/ProteinsWebTeam/taxonomy-visualisation.git"
   },
-  "license": "GPL-3.0",
+  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
+  "main": "dist/taxonomy-visualisation.js",
+  "author": "Aurélien Luciani <luciani@ebi.ac.uk> (https://github.com/aurel-l)",
+  "keywords": [
+    "visualisation",
+    "taxonomy",
+    "species",
+    "hmmer",
+    "interpro",
+    "ebi"
+  ],
+  "license": "Apache-2.0",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "npm run lint && npm run jest",
     "precommit": "lint-staged",
     "prebuild": "npm run clean",
+    "prepublishOnly": "npm run test && npm run build",
     "clean": "rimraf dist",
     "lint": "eslint --ignore-path .gitignore .",
     "jest": "jest --notify",
@@ -24,7 +41,7 @@
     "linters": {
       "*.js": [
         "eslint --fix --ignore-path .gitignore",
-        "prettier --single-quote --trailing-comma all --write",
+        "prettier --single-quote --trailing-comma es5 --write",
         "git add"
       ]
     }
@@ -66,7 +83,6 @@
       }
     }
   },
-  "author": "Aurélien Luciani <luciani@ebi.ac.uk> (https://github.com/aurel-l/)",
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
