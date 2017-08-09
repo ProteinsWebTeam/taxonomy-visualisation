@@ -1,6 +1,6 @@
 {
   "name": "taxonomy-visualisation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Taxonomy visualisation",
   "files": [
     "dist",

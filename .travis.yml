@@ -1,3 +1,12 @@
 language: node_js
 node_js:
 - '8'
+deploy:
+  provider: npm
+  email: luciani@ebi.ac.uk
+  api_key:
+    secure: b5VJU/AnYwFjtalGn1mt1dw8JQL3+X+zHlf/ynkBSnIPqBdSOvf9ZqBnSmEoIwzRuA6g+S50+jtq9X5JzVeLNBBWHmT+wJIV5GW6NwCi0+fhe6laR891Xls5BmnV7JcHyyQtT3nel6usMRhCuH/MZjHZT3AvAHyYf7D5llWb8ee9r+PtUXnLA/4w3eYzo0WonulUl8h7cm9nxamcjL5kEdb7bLiPC6fvwciNqeGqLhCBDTxGjScYf7FWGaNkdLG5oVlMFGH8JPrSUFe/Hq/LagLfVUHkbGmGfUKEdP7IAaCrldTCGrnh4B2xnkJn1C7yQVOdSUfNk8ch8047LbCIXZjahHpYco4Ft/1MlU2sfCr5dHmuFVpPG78GsFdJY8trgG9/vimdVPUifIDb+S83MZYQc4Kz3sYwejeplmFI5c62+nh5wtBbWylLT2F/8O69drYKBTf7nSJjoRPjleT7vWDqUmNS/GtWPdGSxW+LzsnYvcdLOs2a7xRg4X9O9rTn33hDvJUKzrzMdsQK1hoCxMVB8FuOuwViY0sTSUeYTL+iQQmD6NhK1sKyXfmkd1vNzFfb1qYHu9+5cClMwCGA4lUVUK0gb9BeXtWvU5BJQp81MZh4e7WxMM9IWKcFrOo2Xo4ub6VJJkFMuI0D5Dza1U5g9a7ngPu4k/lv1GmfH4M=
+  on:
+    tags: true
+    repo: ProteinsWebTeam/taxonomy-visualisation
+    branch: master
