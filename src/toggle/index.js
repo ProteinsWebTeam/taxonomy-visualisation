@@ -1,7 +1,7 @@
 import { event } from 'd3';
 
-import collapse from 'collapse';
-import focus from 'focus';
+import collapse from '../collapse';
+import focus from '../focus';
 
 export default (global, node) => {
   try {

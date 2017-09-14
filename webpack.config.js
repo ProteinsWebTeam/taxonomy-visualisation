@@ -9,12 +9,6 @@ const pkg = require(path.resolve(__dirname, 'package.json'));
 // Default config, common to everything
 const defaultConfig = {
   target: 'web',
-  resolve: {
-    modules: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'node_modules'),
-    ],
-  },
   module: {
     rules: [
       {

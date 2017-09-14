@@ -1,6 +1,6 @@
 import { easeElastic } from 'd3';
 
-import { colors } from 'theme';
+import { colors } from '../../theme';
 
 export default ({ selection: { tree }, focused }) => {
   // Each focus ring (only ever going to be one)

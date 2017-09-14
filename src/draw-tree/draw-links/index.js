@@ -1,6 +1,6 @@
 import { linkHorizontal } from 'd3';
 
-import { colors } from 'theme';
+import { colors } from '../../theme';
 
 export default global => {
   // Each link
@@ -8,7 +8,7 @@ export default global => {
     .selectAll('.link')
     .data(
       global.tree(global.root).links(),
-      ({ target: { data: { id } } }) => id,
+      ({ target: { data: { id } } }) => id
     );
 
   // Link enter
@@ -20,14 +20,19 @@ export default global => {
     .merge(link)
     .attr(
       'class',
-      ({ target: { inPath } }) => `link${inPath ? ' in-path' : ''}`,
+      ({ target: { inPath } }) => `link${inPath ? ' in-path' : ''}`
     )
     .attr('fill', 'none')
     .transition()
-    .attr('d', linkHorizontal().x(({ y }) => y).y(({ x }) => x))
+    .attr(
+      'd',
+      linkHorizontal()
+        .x(({ y }) => y)
+        .y(({ x }) => x)
+    )
     .attr(
       'stroke',
-      ({ target: { inPath } }) => colors[inPath ? 'focus' : 'off'],
+      ({ target: { inPath } }) => colors[inPath ? 'focus' : 'off']
     )
     .attr('stroke-width', ({ target: { inPath } }) => (inPath ? 2 : 1))
     .attr('opacity', 1);

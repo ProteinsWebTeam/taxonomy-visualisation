@@ -1,23 +1,23 @@
 import { max, tree as d3Tree, select } from 'd3';
 
 // extending d3's defaults
-import hierarchy from 'hierarchy';
+import hierarchy from './hierarchy';
 
-import { updateFocusSize, updateTreeSize } from 'update-size';
-import collapse from 'collapse';
-import focus from 'focus';
-import toggle from 'toggle';
-import getDepthCounts from 'get-depth-counts';
-import getMaxDepth from 'get-max-depth';
+import { updateFocusSize, updateTreeSize } from './update-size';
+import collapse from './collapse';
+import focus from './focus';
+import toggle from './toggle';
+import getDepthCounts from './get-depth-counts';
+import getMaxDepth from './get-max-depth';
 
-import draw from 'draw';
+import draw from './draw';
 
 const DEFAULT_INITIAL_MAX_NODES = 10;
 
 export default class SpeciesVisualisation {
   constructor(
     data,
-    { tree, focus, initialMaxNodes = DEFAULT_INITIAL_MAX_NODES } = {},
+    { tree, focus, initialMaxNodes = DEFAULT_INITIAL_MAX_NODES } = {}
   ) {
     this._global = {
       tree: d3Tree(),
@@ -52,21 +52,25 @@ export default class SpeciesVisualisation {
   _keyDownEventListener(e) {
     switch (e.key) {
       case 'ArrowDown':
+        e.preventDefault();
         // Focus next sibling
         focus(this._global, this._global.focused.sibling(1));
         this.redraw();
         break;
       case 'ArrowUp':
+        e.preventDefault();
         // Focus previous sibling
         focus(this._global, this._global.focused.sibling(-1));
         this.redraw();
         break;
       case 'ArrowLeft':
+        e.preventDefault();
         // Focus parent
         focus(this._global, this._global.focused.parent);
         this.redraw();
         break;
       case 'ArrowRight':
+        e.preventDefault();
         // If collapsed, open
         if (this._global.focused._children) {
           toggle(this._global, this._global.focused);
@@ -74,11 +78,12 @@ export default class SpeciesVisualisation {
         // Focus first child
         focus(
           this._global,
-          this._global.focused.children && this._global.focused.children[0],
+          this._global.focused.children && this._global.focused.children[0]
         );
         this.redraw();
         break;
       case 'Enter':
+        e.preventDefault();
         toggle(this._global, this._global.focused);
         this.redraw();
         break;
@@ -116,7 +121,7 @@ export default class SpeciesVisualisation {
     // Initial node collapse
     const maxDepth = getMaxDepth(
       getDepthCounts(this._global.all),
-      this._global.initialMaxNodes,
+      this._global.initialMaxNodes
     );
     for (const node of this._global.all) {
       if (node.depth >= maxDepth) collapse(node);
@@ -132,7 +137,7 @@ export default class SpeciesVisualisation {
       this._global.root.data.hitdist.length
     ) {
       this._global.maxCountBin = max(this._global.all, node =>
-        max(node.data.hitdist),
+        max(node.data.hitdist)
       );
       this._global.nBins = this._global.root.data.hitdist.length;
     }
@@ -148,9 +153,12 @@ export default class SpeciesVisualisation {
       this._global.selection.tree = null;
       return;
     }
+    if (element.tagName.toLowerCase() !== 'svg') {
+      throw new Error('Root element for the tree needs to be an SVG element');
+    }
     this._global.selection.tree = select(element).attr('tabindex', 0);
     // move focus according to keyboard
-    element.addEventListener('keydown', this._keyDownEventListener);
+    element.addEventListener('keydown', this._keyDownEventListener.bind(this));
     // resize according to available size
     updateTreeSize(this._global.selection.tree, this._global);
     // ... and corresponding resizes
@@ -172,13 +180,21 @@ export default class SpeciesVisualisation {
       this._global.selection.focus = null;
       return;
     }
+    // Replace possible loading elements
+    for (const child of element.children) {
+      element.removeChild(child);
+    }
     const root = (this._global.selection.focus = select(element));
 
     const desc = root
       .append('div')
       .attr('class', 'desc')
       .style('display', 'inline-block');
-    desc.append('p').attr('class', 'lineage').append('span').text('Lineage:');
+    desc
+      .append('p')
+      .attr('class', 'lineage')
+      .append('span')
+      .text('Lineage:');
     desc.append('p').attr('class', 'name');
     // Histogram
     root

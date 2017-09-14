@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import TaxonomyVisualisation from 'index';
+import TaxonomyVisualisation from '../src/index';
 
 import data from './data/1';
 
@@ -14,7 +14,7 @@ visualisation.addEventListener('focus', event => {
 });
 
 visualisation.focus.addEventListener('click', event =>
-  console.log(visualisation.getDataFromEvent(event)),
+  console.log(visualisation.getDataFromEvent(event))
 );
 
 // Other way to do it:

@@ -1,7 +1,7 @@
-import toggle from 'toggle';
-import focus from 'focus';
+import toggle from '../../toggle';
+import focus from '../../focus';
 
-import { colors } from 'theme';
+import { colors } from '../../theme';
 
 export default global => {
   // Each node
@@ -53,15 +53,18 @@ export default global => {
     .attr('text-anchor', 'middle')
     .style(
       'text-shadow',
-      '0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff',
+      '0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff'
     );
   // Label name
   label.append('tspan').attr('class', 'name');
   // Label arrow
-  label.append('tspan').attr('class', 'arrow').on('click', node => {
-    toggle(global, node);
-    global.instance.redraw();
-  });
+  label
+    .append('tspan')
+    .attr('class', 'arrow')
+    .on('click', node => {
+      toggle(global, node);
+      global.instance.redraw();
+    });
 
   if (global.root.data.hitdist && global.root.data.hitdist.length) {
     // Node info histogram group
@@ -106,7 +109,7 @@ export default global => {
     .selectAll('.label > .name')
     .text(
       ({ data: { name, hitcount } }) =>
-        `${name}${typeof hitcount === 'undefined' ? '' : `\n(${hitcount})`}`,
+        `${name}${typeof hitcount === 'undefined' ? '' : `\n(${hitcount})`}`
     );
   // Get label arrows
   global.selection.tree

@@ -1,5 +1,5 @@
-import drawFocus from 'draw-focus';
-import drawTree from 'draw-tree';
+import drawFocus from '../draw-focus';
+import drawTree from '../draw-tree';
 
 const draw = global => {
   if (global.selection.focus) drawFocus(global);

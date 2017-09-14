@@ -1,4 +1,4 @@
-import { colors } from 'theme';
+import { colors } from '../../theme';
 
 const WIDTH = 200;
 const HEIGHT = 100;
