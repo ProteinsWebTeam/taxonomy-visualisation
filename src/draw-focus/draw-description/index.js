@@ -1,5 +1,8 @@
-export default ({ selection: { focus }, focused }) => {
-  const lineage = focus.select('.lineage');
+import focus from '../../focus';
+
+export default global => {
+  const { selection, focused } = global;
+  const lineage = selection.focus.select('.lineage');
   const ancestors = lineage
     .selectAll('.ancestor')
     .data(focused.ancestors().reverse());
@@ -7,12 +10,16 @@ export default ({ selection: { focus }, focused }) => {
     .enter()
     .append('a')
     .attr('class', 'ancestor')
+    .on('click', node => {
+      focus(global, node);
+      global.instance.redraw();
+    })
     .merge(ancestors)
-    .text(d => ` → ${d.data.name}`);
+    .text(node => ` → ${node.data.name}`);
   ancestors.exit().remove();
 
-  const name = focus.selectAll('.name').data([focused]);
+  const name = selection.focus.selectAll('.name').data([focused]);
   name.text(
-    ({ data: { name, hitcount } }) => name + (hitcount ? ` (${hitcount})` : ''),
+    ({ data: { name, hitcount } }) => name + (hitcount ? ` (${hitcount})` : '')
   );
 };
