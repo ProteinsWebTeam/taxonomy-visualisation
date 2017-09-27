@@ -1,5 +1,5 @@
 const getSize = element => {
-  const pixelRatio = window.pixelRatio || 1;
+  const pixelRatio = window.devicePixelRatio || 1;
 
   let { width, height } = element.getBoundingClientRect();
 
