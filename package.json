@@ -1,6 +1,6 @@
 {
   "name": "taxonomy-visualisation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Taxonomy visualisation",
   "files": [
     "dist",
@@ -93,12 +93,12 @@
     "eslint-config-prettier": "^2.6.0",
     "html-webpack-plugin": "^2.30.1",
     "husky": "^0.14.3",
-    "jest": "^21.2.0",
+    "jest": "^21.2.1",
     "lint-staged": "^4.2.3",
-    "prettier": "^1.7.0",
+    "prettier": "^1.7.2",
     "rimraf": "^2.6.2",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
+    "webpack-dev-server": "^2.9.1"
   },
   "dependencies": {
     "d3": "^4.10.2"

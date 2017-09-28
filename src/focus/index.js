@@ -16,7 +16,7 @@ const dispatchFocus = ({ selection, instance, focused: { data } }) => {
     node.dispatchEvent(new CustomEvent('focus', { detail: data }));
   }
   // Emit event from the instance registrations
-  for (const listeners of instance._listenersPerType.get('focus')) {
+  for (const listeners of instance._listenersPerType.get('focus').values()) {
     listeners(new CustomEvent('focus', { detail: data }));
   }
 };
