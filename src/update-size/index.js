@@ -1,22 +1,14 @@
 const getSize = element => {
-  const pixelRatio = window.devicePixelRatio || 1;
+  const { width, height } = element.getBoundingClientRect();
 
-  let { width, height } = element.getBoundingClientRect();
-
-  [width, height] = [width * pixelRatio, height * pixelRatio];
-
-  return {
-    pixelRatio,
-    width: width * pixelRatio,
-    height: height * pixelRatio,
-  };
+  return { width, height };
 };
 
 export const updateFocusSize = focusSelection => {
   if (!focusSelection) return;
-  const { pixelRatio, height } = getSize(focusSelection.node());
+  const { height } = getSize(focusSelection.node());
 
-  focusSelection.select('svg').style('width', 2 * height / pixelRatio);
+  focusSelection.select('svg').style('width', 2 * height);
 };
 
 export const updateTreeSize = (treeSelection, global) => {
