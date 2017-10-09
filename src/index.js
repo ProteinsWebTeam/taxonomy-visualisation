@@ -141,6 +141,8 @@ export default class SpeciesVisualisation {
       );
       this._global.nBins = this._global.root.data.hitdist.length;
     }
+
+    this.redraw();
   }
 
   get data() {
