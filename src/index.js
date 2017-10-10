@@ -43,6 +43,7 @@ export default class SpeciesVisualisation {
     this._eventListenerCommon = this._eventListenerCommon.bind(this);
     // public
     this.redraw = this.redraw.bind(this);
+    this.focusNodeWithID = this.focusNodeWithID.bind(this);
     this.addEventListener = this.addEventListener.bind(this);
     this.removeEventListener = this.removeEventListener.bind(this);
     this.cleanup = this.cleanup.bind(this);
@@ -229,6 +230,15 @@ export default class SpeciesVisualisation {
     const listeners = this._listenersPerType.get(type);
     if (!listeners) throw new Error(`'${type}' is not a supported event type`);
     return listeners;
+  }
+
+  focusNodeWithID(id) {
+    // Try to find the node with the corresponding ID
+    const toBeFocused = this._global.all.find(node => node.data.id === id);
+    // Just returns without doing anything if didn't find
+    if (!toBeFocused) return;
+    // Set focus to found node
+    focus(this._global, toBeFocused);
   }
 
   addEventListener(type, fun) {
