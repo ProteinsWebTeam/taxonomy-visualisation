@@ -252,7 +252,8 @@ export default class SpeciesVisualisation {
   }
 
   cleanup() {
-    for (const listeners of this._listenersPerType) listeners.clear();
+    for (const [, listeners] of this._listenersPerType) listeners.clear();
+    this._listenersPerType.clear();
     // remove references
     this._global.instance = null;
   }
