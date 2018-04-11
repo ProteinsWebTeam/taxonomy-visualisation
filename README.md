@@ -134,7 +134,7 @@ type Node = {
 };
 ```
 
-   Note that all the `hitdist` arrays should have the same length thoughout the
+   Note that all the `hitdist` arrays should have the same length throughout the
    tree.
    
    All of the keys will be kept and made available as a Node's data. You can
