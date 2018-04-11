@@ -39,16 +39,7 @@ module.exports = (env = { dev: true }) => {
         env.production
           ? new webpack.optimize.ModuleConcatenationPlugin()
           : null,
-        env.production
-          ? new webpack.optimize.UglifyJsPlugin({
-              beautify: env.debug,
-              mangle: {
-                keep_fnames: env.debug,
-              },
-              comments: env.debug,
-              sourceMap: '#source-map',
-            })
-          : null,
+        env.production ? webpack.optimize.minimize : null,
         env.dev ? new webpack.HotModuleReplacementPlugin() : null,
         env.dev
           ? new HtmlWebpackPlugin({

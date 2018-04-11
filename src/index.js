@@ -14,7 +14,7 @@ import draw from './draw';
 
 const DEFAULT_INITIAL_MAX_NODES = 10;
 
-export default class SpeciesVisualisation {
+export default class TaxonomyVisualisation {
   constructor(
     data,
     { tree, focus, initialMaxNodes = DEFAULT_INITIAL_MAX_NODES } = {}
@@ -244,6 +244,7 @@ export default class SpeciesVisualisation {
   addEventListener(type, fun) {
     const listeners = this._eventListenerCommon(type, fun);
     listeners.add(fun);
+    return fun;
   }
 
   removeEventListener(type, fun) {
