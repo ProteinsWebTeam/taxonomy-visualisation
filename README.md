@@ -100,9 +100,11 @@ install the dependencies
 
 `npm install`
 
-then run de the example with
+then run the example with
 
 `npm run start`
+
+and open the page whose URL is displayed in the console
 
 ## API
 
