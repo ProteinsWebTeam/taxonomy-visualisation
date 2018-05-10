@@ -27,7 +27,11 @@ export default global => {
   // Node enter + update
   nodeEnter
     .merge(node)
-    .attr('class', ({ focused }) => `node${focused ? ' focused' : ''}`)
+    .attr(
+      'class',
+      ({ focused, inPath }) =>
+        `node${focused ? ' focused' : ''}${inPath ? ' in-path' : ''}`
+    )
     .style('cursor', 'pointer')
     .transition()
     .attr('opacity', 1)
