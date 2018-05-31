@@ -17,7 +17,12 @@ const DEFAULT_INITIAL_MAX_NODES = 10;
 export default class TaxonomyVisualisation {
   constructor(
     data,
-    { tree, focus, initialMaxNodes = DEFAULT_INITIAL_MAX_NODES } = {}
+    {
+      tree,
+      focus,
+      initialMaxNodes = DEFAULT_INITIAL_MAX_NODES,
+      enableFisheye = false,
+    } = {}
   ) {
     this._global = {
       tree: d3Tree(),
@@ -27,6 +32,7 @@ export default class TaxonomyVisualisation {
       },
       initialMaxNodes: +initialMaxNodes || DEFAULT_INITIAL_MAX_NODES,
       instance: this,
+      enableFisheye,
     };
     this._listenersPerType = new Map([
       ['click', new Set()],
@@ -160,6 +166,7 @@ export default class TaxonomyVisualisation {
       throw new Error('Root element for the tree needs to be an SVG element');
     }
     this._global.selection.tree = select(element).attr('tabindex', 0);
+
     // move focus according to keyboard
     element.addEventListener('keydown', this._keyDownEventListener.bind(this));
     // resize according to available size

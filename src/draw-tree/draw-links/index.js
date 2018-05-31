@@ -4,12 +4,14 @@ import { colors } from '../../theme';
 
 export default global => {
   // Each link
-  const link = global.selection.tree
-    .selectAll('.link')
-    .data(
-      global.tree(global.root).links(),
-      ({ target: { data: { id } } }) => id
-    );
+  const link = global.selection.tree.selectAll('.link').data(
+    global.root.links(),
+    ({
+      target: {
+        data: { id },
+      },
+    }) => id
+  );
 
   // Link enter
   link

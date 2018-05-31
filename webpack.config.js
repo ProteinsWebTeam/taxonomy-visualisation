@@ -27,6 +27,7 @@ const defaultConfig = {
 module.exports = (env = { dev: true }) => {
   const configWithEnv = Object.assign(
     {
+      mode: env.production ? 'production' : 'development',
       entry: env.dev
         ? path.resolve(__dirname, 'example', 'index.js')
         : path.resolve(__dirname, 'src', 'index.js'),

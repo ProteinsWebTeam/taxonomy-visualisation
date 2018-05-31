@@ -4,7 +4,10 @@ import TaxonomyVisualisation from '../src/index';
 import data from './data/1';
 
 // One way to instantiate the visualisation:
-const visualisation = new TaxonomyVisualisation(data, { initialMaxNodes: 10 });
+const visualisation = new TaxonomyVisualisation(data, {
+  initialMaxNodes: 30,
+  enableFisheye: true,
+});
 // visualisation.data = data;
 visualisation.tree = document.getElementById('tree-root');
 visualisation.focus = document.getElementById('focus-root');

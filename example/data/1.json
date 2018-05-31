@@ -1,1 +1,915 @@
-{"hitcount":373,"name":"All","children":[{"hitcount":1,"name":"Bacteria","children":[{"hitcount":1,"name":"Firmicutes","children":[{"hitcount":1,"name":"Bacilli","children":[{"hitcount":1,"name":"Lactobacillales","children":[{"hitcount":1,"name":"Streptococcaceae","children":[{"hitcount":1,"name":"Streptococcus","children":[{"hitcount":1,"name":"Streptococcus sp. 'group G'","hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":7,"taxend":86484690,"taxstart":86484584,"id":"1320","parentid":"1301"}],"hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":6,"taxend":88047712,"taxstart":85039813,"id":"1301","parentid":"1300"}],"hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":88216072,"taxstart":85039813,"id":"1300","parentid":"186826"}],"hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":91874028,"taxstart":85039813,"id":"186826","parentid":"91061"}],"hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":3,"taxend":91874028,"taxstart":67497632,"id":"91061","parentid":"1239"}],"hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":2,"taxend":91874028,"taxstart":62089593,"id":"1239","parentid":"2"}],"hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":1,"taxend":121719355,"taxstart":3496980,"id":"2","parentid":"1"},{"hitcount":6,"name":"other sequences","children":[{"hitcount":6,"name":"synthetic construct","hitdist":[0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":2,"taxend":152728519,"taxstart":152727411,"id":"32630","parentid":"28384"}],"hitdist":[0,2,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":1,"taxend":152728725,"taxstart":152726960,"id":"28384","parentid":"1"},{"hitcount":357,"name":"Eukaryota","children":[{"hitcount":346,"name":"Metazoa","children":[{"hitcount":5,"name":"Nematoda","children":[{"hitcount":5,"name":"Chromadorea","children":[{"hitcount":5,"name":"Rhabditida","children":[{"hitcount":5,"name":"Rhabditidae","children":[{"hitcount":5,"name":"Caenorhabditis","children":[{"hitcount":5,"name":"Caenorhabditis elegans","hitdist":[5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":8,"taxend":131197347,"taxstart":131167378,"id":"6239","parentid":"6237"}],"hitdist":[5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":7,"taxend":131197458,"taxstart":131016029,"id":"6237","parentid":"6243"}],"hitdist":[5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":6,"taxend":131197507,"taxstart":131015862,"id":"6243","parentid":"6236"}],"hitdist":[5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":131306108,"taxstart":130669821,"id":"6236","parentid":"119089"}],"hitdist":[5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":131706719,"taxstart":130621410,"id":"119089","parentid":"6231"}],"hitdist":[5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":3,"taxend":131706759,"taxstart":130284135,"id":"6231","parentid":"33208"},{"hitcount":2,"name":"Arthropoda","children":[{"hitcount":2,"name":"Insecta","children":[{"hitcount":2,"name":"Diptera","children":[{"hitcount":2,"name":"Drosophilidae","children":[{"hitcount":2,"name":"Drosophila","children":[{"hitcount":2,"name":"Drosophila melanogaster","hitdist":[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":8,"taxend":133718758,"taxstart":133674879,"id":"7227","parentid":"7215"}],"hitdist":[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":7,"taxend":133894167,"taxstart":133537824,"id":"7215","parentid":"7214"}],"hitdist":[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":6,"taxend":133896269,"taxstart":133536260,"id":"7214","parentid":"7147"}],"hitdist":[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":134096174,"taxstart":132711667,"id":"7147","parentid":"50557"}],"hitdist":[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":134989482,"taxstart":132044958,"id":"50557","parentid":"6656"}],"hitdist":[1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":3,"taxend":135958849,"taxstart":132013327,"id":"6656","parentid":"33208"},{"hitcount":339,"name":"Chordata","children":[{"hitcount":50,"name":"Aves","children":[{"hitcount":50,"name":"Galliformes","children":[{"hitcount":50,"name":"Phasianidae","children":[{"hitcount":50,"name":"Gallus","children":[{"hitcount":50,"name":"Gallus gallus","hitdist":[25,19,4,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":8,"taxend":140724008,"taxstart":140686020,"id":"9031","parentid":"9030"}],"hitdist":[25,19,4,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":7,"taxend":140724205,"taxstart":140685856,"id":"9030","parentid":"9005"}],"hitdist":[25,19,4,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":6,"taxend":140745142,"taxstart":140684175,"id":"9005","parentid":"8976"}],"hitdist":[25,19,4,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":140745142,"taxstart":140682787,"id":"8976","parentid":"8782"}],"hitdist":[25,19,4,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":141105615,"taxstart":140372909,"id":"8782","parentid":"7711"},{"hitcount":289,"name":"Mammalia","children":[{"hitcount":238,"name":"Primates","children":[{"hitcount":238,"name":"Hominidae","children":[{"hitcount":238,"name":"Homo","children":[{"hitcount":238,"name":"Homo sapiens","hitdist":[58,43,58,18,24,1,11,5,2,6,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,4],"depth":8,"taxend":138776785,"taxstart":138589949,"id":"9606","parentid":"9605"}],"hitdist":[58,43,58,18,24,1,11,5,2,6,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,4],"depth":7,"taxend":138776785,"taxstart":138589871,"id":"9605","parentid":"9604"}],"hitdist":[58,43,58,18,24,1,11,5,2,6,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,4],"depth":6,"taxend":138776785,"taxstart":138495306,"id":"9604","parentid":"9443"}],"hitdist":[58,43,58,18,24,1,11,5,2,6,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,4],"depth":5,"taxend":138776785,"taxstart":138132478,"id":"9443","parentid":"40674"},{"hitcount":6,"name":"Bovidae","children":[{"hitcount":6,"name":"Bos","children":[{"hitcount":6,"name":"Bos taurus","hitdist":[1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":7,"taxend":139074987,"taxstart":139040102,"id":"9913","parentid":"9903"}],"hitdist":[1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":6,"taxend":139075844,"taxstart":139018778,"id":"9903","parentid":"9895"}],"hitdist":[1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":139115405,"taxstart":139013203,"id":"9895","parentid":"40674"},{"hitcount":45,"name":"Rodentia","children":[{"hitcount":45,"name":"Muridae","children":[{"hitcount":34,"name":"Mus","children":[{"hitcount":34,"name":"Mus musculus","hitdist":[16,3,7,4,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],"depth":8,"taxend":139350987,"taxstart":139207224,"id":"10090","parentid":"10088"}],"hitdist":[16,3,7,4,0,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],"depth":7,"taxend":139537969,"taxstart":139207025,"id":"10088","parentid":"10066"},{"hitcount":11,"name":"Rattus","children":[{"hitcount":11,"name":"Rattus norvegicus","hitdist":[3,5,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":8,"taxend":139579224,"taxstart":139538793,"id":"10116","parentid":"10114"}],"hitdist":[3,5,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":7,"taxend":139581178,"taxstart":139538736,"id":"10114","parentid":"10066"}],"hitdist":[19,8,7,5,1,2,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],"depth":6,"taxend":139590652,"taxstart":139206184,"id":"10066","parentid":"9989"}],"hitdist":[19,8,7,5,1,2,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],"depth":5,"taxend":139810522,"taxstart":139161335,"id":"9989","parentid":"40674"}],"hitdist":[78,56,65,23,25,3,11,5,3,7,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,5],"depth":4,"taxend":139810522,"taxstart":137599942,"id":"40674","parentid":"7711"}],"hitdist":[103,75,69,24,25,3,12,5,3,7,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,5],"depth":3,"taxend":141105615,"taxstart":136065341,"id":"7711","parentid":"33208"}],"hitdist":[109,76,69,24,25,3,12,5,3,7,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,5],"depth":2,"taxend":141105615,"taxstart":129571572,"id":"33208","parentid":"2759"},{"hitcount":8,"name":"Fungi","children":[{"hitcount":8,"name":"Ascomycota","children":[{"hitcount":8,"name":"Saccharomycetes","children":[{"hitcount":8,"name":"Saccharomycetales","children":[{"hitcount":8,"name":"Saccharomycetaceae","children":[{"hitcount":8,"name":"Saccharomyces","children":[{"hitcount":7,"name":"Saccharomyces cerevisiae","hitdist":[7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":8,"taxend":148036501,"taxstart":148010380,"id":"4932","parentid":"4930"},{"hitcount":1,"name":"Saccharomyces cerevisiae S288C","hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":8,"taxend":148055035,"taxstart":148047329,"id":"559292","parentid":"4930"}],"hitdist":[8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":7,"taxend":148115631,"taxstart":147462534,"id":"4930","parentid":"4893"}],"hitdist":[8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":6,"taxend":148200481,"taxstart":147278390,"id":"4893","parentid":"4892"}],"hitdist":[8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":148527355,"taxstart":147039100,"id":"4892","parentid":"4891"}],"hitdist":[8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":148527355,"taxstart":147039100,"id":"4891","parentid":"4890"}],"hitdist":[8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":3,"taxend":148540006,"taxstart":141844098,"id":"4890","parentid":"4751"}],"hitdist":[8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":2,"taxend":150712273,"taxstart":141291002,"id":"4751","parentid":"2759"},{"hitcount":2,"name":"Longamoebia","children":[{"hitcount":2,"name":"Acanthamoebidae","children":[{"hitcount":2,"name":"Acanthamoeba","children":[{"hitcount":1,"name":"Acanthamoeba castellanii","hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":123791099,"taxstart":123790522,"id":"5755","parentid":"5754"},{"hitcount":1,"name":"unidentified Acanthamoeba","hitdist":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":123790492,"taxstart":123790492,"id":"2014001","parentid":"5754"}],"hitdist":[2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":123791171,"taxstart":123775503,"id":"5754","parentid":"33677"}],"hitdist":[2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":3,"taxend":123791171,"taxstart":123775503,"id":"33677","parentid":"1485168"}],"hitdist":[2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":2,"taxend":123791329,"taxstart":123775493,"id":"1485168","parentid":"2759"},{"hitcount":1,"name":"Choanoflagellida","children":[{"hitcount":1,"name":"Salpingoecidae","children":[{"hitcount":1,"name":"Monosiga","children":[{"hitcount":1,"name":"Monosiga brevicollis","hitdist":[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":5,"taxend":124004498,"taxstart":123995030,"id":"81824","parentid":"81525"}],"hitdist":[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":124004498,"taxstart":123985818,"id":"81525","parentid":"81529"}],"hitdist":[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":3,"taxend":124016549,"taxstart":123985766,"id":"81529","parentid":"28009"}],"hitdist":[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":2,"taxend":124016549,"taxstart":123985662,"id":"28009","parentid":"2759"}],"hitdist":[119,76,70,24,25,3,12,5,3,7,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,5],"depth":1,"taxend":152726959,"taxstart":123723943,"id":"2759","parentid":"1"},{"hitcount":9,"name":"Viruses","children":[{"hitcount":9,"name":"Retroviridae","children":[{"hitcount":9,"name":"Alpharetrovirus","children":[{"hitcount":1,"name":"Avian sarcoma virus","hitdist":[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":1350793,"taxstart":1350784,"id":"11876","parentid":"153057"},{"hitcount":6,"name":"Rous sarcoma virus","hitdist":[0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":1350884,"taxstart":1350805,"id":"11886","parentid":"153057"},{"hitcount":1,"name":"Rous sarcoma virus (strain Schmidt-Ruppin)","hitdist":[0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":1350901,"taxstart":1350897,"id":"11889","parentid":"153057"},{"hitcount":1,"name":"Avian sarcoma virus PR2257/16","hitdist":[0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":4,"taxend":1351251,"taxstart":1351250,"id":"385048","parentid":"153057"}],"hitdist":[0,2,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":3,"taxend":1351254,"taxstart":1350022,"id":"153057","parentid":"11632"}],"hitdist":[0,2,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":2,"taxend":1356160,"taxstart":692325,"id":"11632","parentid":"10239"}],"hitdist":[0,2,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"depth":1,"taxend":2105233,"taxstart":1,"id":"10239","parentid":"1"}],"hitdist":[120,80,81,24,25,3,12,5,3,7,1,0,0,0,0,2,3,1,1,0,0,0,0,0,0,0,0,0,0,5],"depth":0,"taxend":152728725,"taxstart":1,"id":"1","parentid":null}
+{
+  "hitcount": 373,
+  "name": "All",
+  "children": [{
+    "hitcount": 1,
+    "name": "Bacteria",
+    "children": [{
+      "hitcount": 1,
+      "name": "Firmicutes",
+      "children": [{
+        "hitcount": 1,
+        "name": "Bacilli",
+        "children": [{
+          "hitcount": 1,
+          "name": "Lactobacillales",
+          "children": [{
+            "hitcount": 1,
+            "name": "Streptococcaceae",
+            "children": [{
+              "hitcount": 1,
+              "name": "Streptococcus",
+              "children": [
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group A'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320a",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group B'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320b",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group C'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320c",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group D'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320d",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group E'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320e",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group F'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320f",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group G'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group H'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320h",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group I'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320i",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group J'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320j",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group K'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320k",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group L'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320l",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group M'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320m",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group N'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320n",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group O'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320o",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group P'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320p",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group Q'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320q",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group R'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320r",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group S'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320s",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group T'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320t",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group U'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320u",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group V'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320v",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group W'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320w",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group X'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320x",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group Y'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320y",
+                  "parentid": "1301"
+                },
+                {
+                  "hitcount": 1,
+                  "name": "Streptococcus sp. 'group Z'",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 7,
+                  "taxend": 86484690,
+                  "taxstart": 86484584,
+                  "id": "1320z",
+                  "parentid": "1301"
+                }
+              ],
+              "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              "depth": 6,
+              "taxend": 88047712,
+              "taxstart": 85039813,
+              "id": "1301",
+              "parentid": "1300"
+            }],
+            "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 88216072,
+            "taxstart": 85039813,
+            "id": "1300",
+            "parentid": "186826"
+          }],
+          "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 91874028,
+          "taxstart": 85039813,
+          "id": "186826",
+          "parentid": "91061"
+        }],
+        "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "depth": 3,
+        "taxend": 91874028,
+        "taxstart": 67497632,
+        "id": "91061",
+        "parentid": "1239"
+      }],
+      "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "depth": 2,
+      "taxend": 91874028,
+      "taxstart": 62089593,
+      "id": "1239",
+      "parentid": "2"
+    }],
+    "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "depth": 1,
+    "taxend": 121719355,
+    "taxstart": 3496980,
+    "id": "2",
+    "parentid": "1"
+  }, {
+    "hitcount": 6,
+    "name": "other sequences",
+    "children": [{
+      "hitcount": 6,
+      "name": "synthetic construct",
+      "hitdist": [0, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "depth": 2,
+      "taxend": 152728519,
+      "taxstart": 152727411,
+      "id": "32630",
+      "parentid": "28384"
+    }],
+    "hitdist": [0, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "depth": 1,
+    "taxend": 152728725,
+    "taxstart": 152726960,
+    "id": "28384",
+    "parentid": "1"
+  }, {
+    "hitcount": 357,
+    "name": "Eukaryota",
+    "children": [{
+      "hitcount": 346,
+      "name": "Metazoa",
+      "children": [{
+        "hitcount": 5,
+        "name": "Nematoda",
+        "children": [{
+          "hitcount": 5,
+          "name": "Chromadorea",
+          "children": [{
+            "hitcount": 5,
+            "name": "Rhabditida",
+            "children": [{
+              "hitcount": 5,
+              "name": "Rhabditidae",
+              "children": [{
+                "hitcount": 5,
+                "name": "Caenorhabditis",
+                "children": [{
+                  "hitcount": 5,
+                  "name": "Caenorhabditis elegans",
+                  "hitdist": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 8,
+                  "taxend": 131197347,
+                  "taxstart": 131167378,
+                  "id": "6239",
+                  "parentid": "6237"
+                }],
+                "hitdist": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                "depth": 7,
+                "taxend": 131197458,
+                "taxstart": 131016029,
+                "id": "6237",
+                "parentid": "6243"
+              }],
+              "hitdist": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              "depth": 6,
+              "taxend": 131197507,
+              "taxstart": 131015862,
+              "id": "6243",
+              "parentid": "6236"
+            }],
+            "hitdist": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 131306108,
+            "taxstart": 130669821,
+            "id": "6236",
+            "parentid": "119089"
+          }],
+          "hitdist": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 131706719,
+          "taxstart": 130621410,
+          "id": "119089",
+          "parentid": "6231"
+        }],
+        "hitdist": [5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "depth": 3,
+        "taxend": 131706759,
+        "taxstart": 130284135,
+        "id": "6231",
+        "parentid": "33208"
+      }, {
+        "hitcount": 2,
+        "name": "Arthropoda",
+        "children": [{
+          "hitcount": 2,
+          "name": "Insecta",
+          "children": [{
+            "hitcount": 2,
+            "name": "Diptera",
+            "children": [{
+              "hitcount": 2,
+              "name": "Drosophilidae",
+              "children": [{
+                "hitcount": 2,
+                "name": "Drosophila",
+                "children": [{
+                  "hitcount": 2,
+                  "name": "Drosophila melanogaster",
+                  "hitdist": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 8,
+                  "taxend": 133718758,
+                  "taxstart": 133674879,
+                  "id": "7227",
+                  "parentid": "7215"
+                }],
+                "hitdist": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                "depth": 7,
+                "taxend": 133894167,
+                "taxstart": 133537824,
+                "id": "7215",
+                "parentid": "7214"
+              }],
+              "hitdist": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              "depth": 6,
+              "taxend": 133896269,
+              "taxstart": 133536260,
+              "id": "7214",
+              "parentid": "7147"
+            }],
+            "hitdist": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 134096174,
+            "taxstart": 132711667,
+            "id": "7147",
+            "parentid": "50557"
+          }],
+          "hitdist": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 134989482,
+          "taxstart": 132044958,
+          "id": "50557",
+          "parentid": "6656"
+        }],
+        "hitdist": [1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "depth": 3,
+        "taxend": 135958849,
+        "taxstart": 132013327,
+        "id": "6656",
+        "parentid": "33208"
+      }, {
+        "hitcount": 339,
+        "name": "Chordata",
+        "children": [{
+          "hitcount": 50,
+          "name": "Aves",
+          "children": [{
+            "hitcount": 50,
+            "name": "Galliformes",
+            "children": [{
+              "hitcount": 50,
+              "name": "Phasianidae",
+              "children": [{
+                "hitcount": 50,
+                "name": "Gallus",
+                "children": [{
+                  "hitcount": 50,
+                  "name": "Gallus gallus",
+                  "hitdist": [25, 19, 4, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 8,
+                  "taxend": 140724008,
+                  "taxstart": 140686020,
+                  "id": "9031",
+                  "parentid": "9030"
+                }],
+                "hitdist": [25, 19, 4, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                "depth": 7,
+                "taxend": 140724205,
+                "taxstart": 140685856,
+                "id": "9030",
+                "parentid": "9005"
+              }],
+              "hitdist": [25, 19, 4, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              "depth": 6,
+              "taxend": 140745142,
+              "taxstart": 140684175,
+              "id": "9005",
+              "parentid": "8976"
+            }],
+            "hitdist": [25, 19, 4, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 140745142,
+            "taxstart": 140682787,
+            "id": "8976",
+            "parentid": "8782"
+          }],
+          "hitdist": [25, 19, 4, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 141105615,
+          "taxstart": 140372909,
+          "id": "8782",
+          "parentid": "7711"
+        }, {
+          "hitcount": 289,
+          "name": "Mammalia",
+          "children": [{
+            "hitcount": 238,
+            "name": "Primates",
+            "children": [{
+              "hitcount": 238,
+              "name": "Hominidae",
+              "children": [{
+                "hitcount": 238,
+                "name": "Homo",
+                "children": [{
+                  "hitcount": 238,
+                  "name": "Homo sapiens",
+                  "hitdist": [58, 43, 58, 18, 24, 1, 11, 5, 2, 6, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+                  "depth": 8,
+                  "taxend": 138776785,
+                  "taxstart": 138589949,
+                  "id": "9606",
+                  "parentid": "9605"
+                }],
+                "hitdist": [58, 43, 58, 18, 24, 1, 11, 5, 2, 6, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+                "depth": 7,
+                "taxend": 138776785,
+                "taxstart": 138589871,
+                "id": "9605",
+                "parentid": "9604"
+              }],
+              "hitdist": [58, 43, 58, 18, 24, 1, 11, 5, 2, 6, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+              "depth": 6,
+              "taxend": 138776785,
+              "taxstart": 138495306,
+              "id": "9604",
+              "parentid": "9443"
+            }],
+            "hitdist": [58, 43, 58, 18, 24, 1, 11, 5, 2, 6, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+            "depth": 5,
+            "taxend": 138776785,
+            "taxstart": 138132478,
+            "id": "9443",
+            "parentid": "40674"
+          }, {
+            "hitcount": 6,
+            "name": "Bovidae",
+            "children": [{
+              "hitcount": 6,
+              "name": "Bos",
+              "children": [{
+                "hitcount": 6,
+                "name": "Bos taurus",
+                "hitdist": [1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                "depth": 7,
+                "taxend": 139074987,
+                "taxstart": 139040102,
+                "id": "9913",
+                "parentid": "9903"
+              }],
+              "hitdist": [1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              "depth": 6,
+              "taxend": 139075844,
+              "taxstart": 139018778,
+              "id": "9903",
+              "parentid": "9895"
+            }],
+            "hitdist": [1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 139115405,
+            "taxstart": 139013203,
+            "id": "9895",
+            "parentid": "40674"
+          }, {
+            "hitcount": 45,
+            "name": "Rodentia",
+            "children": [{
+              "hitcount": 45,
+              "name": "Muridae",
+              "children": [{
+                "hitcount": 34,
+                "name": "Mus",
+                "children": [{
+                  "hitcount": 34,
+                  "name": "Mus musculus",
+                  "hitdist": [16, 3, 7, 4, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                  "depth": 8,
+                  "taxend": 139350987,
+                  "taxstart": 139207224,
+                  "id": "10090",
+                  "parentid": "10088"
+                }],
+                "hitdist": [16, 3, 7, 4, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                "depth": 7,
+                "taxend": 139537969,
+                "taxstart": 139207025,
+                "id": "10088",
+                "parentid": "10066"
+              }, {
+                "hitcount": 11,
+                "name": "Rattus",
+                "children": [{
+                  "hitcount": 11,
+                  "name": "Rattus norvegicus",
+                  "hitdist": [3, 5, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 8,
+                  "taxend": 139579224,
+                  "taxstart": 139538793,
+                  "id": "10116",
+                  "parentid": "10114"
+                }],
+                "hitdist": [3, 5, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                "depth": 7,
+                "taxend": 139581178,
+                "taxstart": 139538736,
+                "id": "10114",
+                "parentid": "10066"
+              }],
+              "hitdist": [19, 8, 7, 5, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+              "depth": 6,
+              "taxend": 139590652,
+              "taxstart": 139206184,
+              "id": "10066",
+              "parentid": "9989"
+            }],
+            "hitdist": [19, 8, 7, 5, 1, 2, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            "depth": 5,
+            "taxend": 139810522,
+            "taxstart": 139161335,
+            "id": "9989",
+            "parentid": "40674"
+          }],
+          "hitdist": [78, 56, 65, 23, 25, 3, 11, 5, 3, 7, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+          "depth": 4,
+          "taxend": 139810522,
+          "taxstart": 137599942,
+          "id": "40674",
+          "parentid": "7711"
+        }],
+        "hitdist": [103, 75, 69, 24, 25, 3, 12, 5, 3, 7, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+        "depth": 3,
+        "taxend": 141105615,
+        "taxstart": 136065341,
+        "id": "7711",
+        "parentid": "33208"
+      }],
+      "hitdist": [109, 76, 69, 24, 25, 3, 12, 5, 3, 7, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+      "depth": 2,
+      "taxend": 141105615,
+      "taxstart": 129571572,
+      "id": "33208",
+      "parentid": "2759"
+    }, {
+      "hitcount": 8,
+      "name": "Fungi",
+      "children": [{
+        "hitcount": 8,
+        "name": "Ascomycota",
+        "children": [{
+          "hitcount": 8,
+          "name": "Saccharomycetes",
+          "children": [{
+            "hitcount": 8,
+            "name": "Saccharomycetales",
+            "children": [{
+              "hitcount": 8,
+              "name": "Saccharomycetaceae",
+              "children": [{
+                "hitcount": 8,
+                "name": "Saccharomyces",
+                "children": [{
+                  "hitcount": 7,
+                  "name": "Saccharomyces cerevisiae",
+                  "hitdist": [7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 8,
+                  "taxend": 148036501,
+                  "taxstart": 148010380,
+                  "id": "4932",
+                  "parentid": "4930"
+                }, {
+                  "hitcount": 1,
+                  "name": "Saccharomyces cerevisiae S288C",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 8,
+                  "taxend": 148055035,
+                  "taxstart": 148047329,
+                  "id": "559292",
+                  "parentid": "4930"
+                }],
+                "hitdist": [8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                "depth": 7,
+                "taxend": 148115631,
+                "taxstart": 147462534,
+                "id": "4930",
+                "parentid": "4893"
+              }],
+              "hitdist": [8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              "depth": 6,
+              "taxend": 148200481,
+              "taxstart": 147278390,
+              "id": "4893",
+              "parentid": "4892"
+            }],
+            "hitdist": [8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 148527355,
+            "taxstart": 147039100,
+            "id": "4892",
+            "parentid": "4891"
+          }],
+          "hitdist": [8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 148527355,
+          "taxstart": 147039100,
+          "id": "4891",
+          "parentid": "4890"
+        }],
+        "hitdist": [8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "depth": 3,
+        "taxend": 148540006,
+        "taxstart": 141844098,
+        "id": "4890",
+        "parentid": "4751"
+      }],
+      "hitdist": [8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "depth": 2,
+      "taxend": 150712273,
+      "taxstart": 141291002,
+      "id": "4751",
+      "parentid": "2759"
+    }, {
+      "hitcount": 2,
+      "name": "Longamoebia",
+      "children": [{
+        "hitcount": 2,
+        "name": "Acanthamoebidae",
+        "children": [{
+          "hitcount": 2,
+          "name": "Acanthamoeba",
+          "children": [{
+            "hitcount": 1,
+            "name": "Acanthamoeba castellanii",
+            "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 123791099,
+            "taxstart": 123790522,
+            "id": "5755",
+            "parentid": "5754"
+          }, {
+            "hitcount": 1,
+            "name": "unidentified Acanthamoeba",
+            "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 123790492,
+            "taxstart": 123790492,
+            "id": "2014001",
+            "parentid": "5754"
+          }],
+          "hitdist": [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 123791171,
+          "taxstart": 123775503,
+          "id": "5754",
+          "parentid": "33677"
+        }],
+        "hitdist": [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "depth": 3,
+        "taxend": 123791171,
+        "taxstart": 123775503,
+        "id": "33677",
+        "parentid": "1485168"
+      }],
+      "hitdist": [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "depth": 2,
+      "taxend": 123791329,
+      "taxstart": 123775493,
+      "id": "1485168",
+      "parentid": "2759"
+    }, {
+      "hitcount": 1,
+      "name": "Choanoflagellida",
+      "children": [{
+        "hitcount": 1,
+        "name": "Salpingoecidae",
+        "children": [{
+          "hitcount": 1,
+          "name": "Monosiga",
+          "children": [{
+            "hitcount": 1,
+            "name": "Monosiga brevicollis",
+            "hitdist": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            "depth": 5,
+            "taxend": 124004498,
+            "taxstart": 123995030,
+            "id": "81824",
+            "parentid": "81525"
+          }],
+          "hitdist": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 124004498,
+          "taxstart": 123985818,
+          "id": "81525",
+          "parentid": "81529"
+        }],
+        "hitdist": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "depth": 3,
+        "taxend": 124016549,
+        "taxstart": 123985766,
+        "id": "81529",
+        "parentid": "28009"
+      }],
+      "hitdist": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "depth": 2,
+      "taxend": 124016549,
+      "taxstart": 123985662,
+      "id": "28009",
+      "parentid": "2759"
+    }],
+    "hitdist": [119, 76, 70, 24, 25, 3, 12, 5, 3, 7, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+    "depth": 1,
+    "taxend": 152726959,
+    "taxstart": 123723943,
+    "id": "2759",
+    "parentid": "1"
+  }, {
+    "hitcount": 9,
+    "name": "Viruses",
+    "children": [{
+      "hitcount": 9,
+      "name": "Retroviridae",
+      "children": [{
+        "hitcount": 9,
+        "name": "Alpharetrovirus",
+        "children": [{
+          "hitcount": 1,
+          "name": "Avian sarcoma virus",
+          "hitdist": [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 1350793,
+          "taxstart": 1350784,
+          "id": "11876",
+          "parentid": "153057"
+        }, {
+          "hitcount": 6,
+          "name": "Rous sarcoma virus",
+          "hitdist": [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 1350884,
+          "taxstart": 1350805,
+          "id": "11886",
+          "parentid": "153057"
+        }, {
+          "hitcount": 1,
+          "name": "Rous sarcoma virus (strain Schmidt-Ruppin)",
+          "hitdist": [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 1350901,
+          "taxstart": 1350897,
+          "id": "11889",
+          "parentid": "153057"
+        }, {
+          "hitcount": 1,
+          "name": "Avian sarcoma virus PR2257/16",
+          "hitdist": [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          "depth": 4,
+          "taxend": 1351251,
+          "taxstart": 1351250,
+          "id": "385048",
+          "parentid": "153057"
+        }],
+        "hitdist": [0, 2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "depth": 3,
+        "taxend": 1351254,
+        "taxstart": 1350022,
+        "id": "153057",
+        "parentid": "11632"
+      }],
+      "hitdist": [0, 2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "depth": 2,
+      "taxend": 1356160,
+      "taxstart": 692325,
+      "id": "11632",
+      "parentid": "10239"
+    }],
+    "hitdist": [0, 2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "depth": 1,
+    "taxend": 2105233,
+    "taxstart": 1,
+    "id": "10239",
+    "parentid": "1"
+  }],
+  "hitdist": [120, 80, 81, 24, 25, 3, 12, 5, 3, 7, 1, 0, 0, 0, 0, 2, 3, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5],
+  "depth": 0,
+  "taxend": 152728725,
+  "taxstart": 1,
+  "id": "1",
+  "parentid": null
+}
