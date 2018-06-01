@@ -762,7 +762,57 @@
             "taxend": 123791099,
             "taxstart": 123790522,
             "id": "5755",
-            "parentid": "5754"
+            "parentid": "5754",
+            "children": [{
+              "hitcount": 1,
+              "name": "Acanthamoeba castellanii.1",
+              "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              "depth": 5,
+              "taxend": 123791099,
+              "taxstart": 123790522,
+              "id": "5755.1",
+              "parentid": "5754",
+              "children": [{
+                "hitcount": 1,
+                "name": "Acanthamoeba castellanii.2",
+                "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                "depth": 5,
+                "taxend": 123791099,
+                "taxstart": 123790522,
+                "id": "5755.2",
+                "parentid": "5754",
+                "children": [{
+                  "hitcount": 1,
+                  "name": "Acanthamoeba castellanii.3",
+                  "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                  "depth": 5,
+                  "taxend": 123791099,
+                  "taxstart": 123790522,
+                  "id": "5755.3",
+                  "parentid": "5754",
+                  "children": [{
+                    "hitcount": 1,
+                    "name": "Acanthamoeba castellanii.4",
+                    "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                    "depth": 5,
+                    "taxend": 123791099,
+                    "taxstart": 123790522,
+                    "id": "5755.4",
+                    "parentid": "5754",
+                    "children": [{
+                      "hitcount": 1,
+                      "name": "Acanthamoeba castellanii.5",
+                      "hitdist": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                      "depth": 5,
+                      "taxend": 123791099,
+                      "taxstart": 123790522,
+                      "id": "5755.5",
+                      "parentid": "5754"
+                    }]
+                  }]
+                }]
+              }]
+            }]
           }, {
             "hitcount": 1,
             "name": "unidentified Acanthamoeba",

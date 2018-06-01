@@ -232,6 +232,11 @@ export default class TaxonomyVisualisation {
     if (this._global.selection.tree) return this._global.selection.tree.node();
   }
 
+  set enableFisheye(value) {
+    this._global.enableFisheye = !!value;
+    this.redraw();
+  }
+
   _eventListenerCommon(type, fun) {
     if (typeof fun !== 'function') throw new Error('Did not pass a function');
     const listeners = this._listenersPerType.get(type);

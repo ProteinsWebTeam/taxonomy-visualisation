@@ -19,6 +19,9 @@ visualisation.addEventListener('focus', event => {
 visualisation.focus.addEventListener('click', event =>
   console.log(visualisation.getDataFromEvent(event))
 );
+document.getElementById('toggle-fisheye').addEventListener('change', e => {
+  visualisation.enableFisheye = e.target.checked;
+});
 
 // Other way to do it:
 // const visualisation = new SpeciesVisualisation(
