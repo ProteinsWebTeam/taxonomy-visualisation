@@ -55,19 +55,19 @@ could be like this:
 ```js
 // Create the instance with data and options
 const visualisation = new TaxonomyVisualisation(data, { initialMaxNodes: 10 });
- 
+
 // Or the data could be updated later like in the following comment
 // visualisation.data = data;
- 
+
 // Connect the instance to DOM elements
 visualisation.tree = document.getElementById('tree-root');
 visualisation.focus = document.getElementById('focus-root');
- 
+
 // Hook up the events emitted by the instance to some custom logic
 visualisation.addEventListener('focus', event => {
   console.log('custom focus event', event.detail);
 });
- 
+
 visualisation.focus.addEventListener('click', event =>
   console.log(visualisation.getDataFromEvent(event))
 );
@@ -121,9 +121,9 @@ const visualisation = new TaxonomyVisualisation(data, options);
 
 #### values
  - data:
- 
+
    a `Data` object, of the type `Node` as defined here:
-   
+
 ```flow js
 type Node = {
   id: string | number,// unique in the whole tree (tax id)
@@ -136,26 +136,26 @@ type Node = {
 
    Note that all the `hitdist` arrays should have the same length throughout the
    tree.
-   
+
    All of the keys will be kept and made available as a Node's data. You can
    store more information that the one required to draw the tree.
-   
+
  - options: (optional)
    - tree: (optional)
-        
+
      a [`SVGSVGElement`](https://developer.mozilla.org/en-US/docs/Web/API/SVGSVGElement)
      (`<svg></svg>`) to display the tree visualisation into.
      default: `undefined`.
-     
-     
+
+
    - focus: (optional)
-        
+
      a [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
      to display the focus information into.
      default: `undefined`.
-     
+
    - initialMaxNodes: (optional)
-   
+
      a positive `number` corresponding to the maximum number of node to display
      at once for the initial load. For example if the number of nodes from the
      root to the depth of 2 is 8, but the number of nodes from the root to the
@@ -164,48 +164,52 @@ type Node = {
      displayed by default. `+Infinity` is a valid value, and will display all of
      the nodes in the tree.
      default: `10`.
-     
+
 #### methods
 
  - `redraw(): void`
- 
+
    Forces redrawing the whole tree.
-   
+
  - `getDataFromEvent(event: Event): Node`
- 
+
    Given an event returned by one of the event listeners, returns the data
    corresponding to the node that emitted the event.
-   
+
  - `focusNodeWithID(id: string | number): void`
- 
+
    Given an ID, focus the node with the corresponding ID, if it exists.
- 
+
  - `addEventListener(type: 'click' | 'focus', fun: Event => void): Event => void`
- 
+
    Add an event listener for a specific event (`focus` or `click`). The callback
    function will be called with an `Event` object. `getDataFromEvent` can be
    used with this `Event`. Return the callback function passed as an input, to
    keep a reference to it to later remove it with `removeEventListener`.
- 
+
  - `removeEventListener(type: 'click' | 'focus', fun: Event => void): void`
- 
+
    Remove an event listener previously added with `addEventListener`.
- 
+
  - `cleanup(): void`
- 
+
    Clean up all the event listeners, and detach all external references inside
    the instance to avoid memory leaks.
- 
+
 #### attributes
 
  - `data: Node` (read-write)
- 
+
    Data associated with this instance of the visualisation.
- 
+
  - `tree: SVGSVGElement` (read-write)
- 
+
    SVG DOM Element containing the tree visualisation.
- 
+
  - `focus: HTMLElement` (read-write)
- 
+
    DOM Element containing the focus visualisation.
+
+ - `enableFisheye: Boolean` (read-write)
+ 
+   Enables/disables the fisheye mode to have a better view of the focused node.

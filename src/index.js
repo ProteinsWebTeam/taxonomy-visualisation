@@ -237,6 +237,10 @@ export default class TaxonomyVisualisation {
     this.redraw();
   }
 
+  get enableFisheye() {
+    return this._global.enableFisheye;
+  }
+
   _eventListenerCommon(type, fun) {
     if (typeof fun !== 'function') throw new Error('Did not pass a function');
     const listeners = this._listenersPerType.get(type);
