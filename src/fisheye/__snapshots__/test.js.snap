@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FishEye if enable, the tree changes 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "x": 101,
+      "y": 80,
+    },
+    Object {
+      "x": 101,
+      "y": 100,
+    },
+    Object {
+      "x": 101,
+      "y": 120,
+    },
+  ],
+  "x": 86,
+  "y": 100,
+}
+`;
