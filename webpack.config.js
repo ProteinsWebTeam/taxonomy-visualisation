@@ -29,7 +29,10 @@ module.exports = (env = { dev: true }) => {
     {
       mode: env.production ? 'production' : 'development',
       entry: env.dev
-        ? path.resolve(__dirname, 'example', 'index.js')
+        ? {
+            example: path.resolve(__dirname, 'example', 'index.js'),
+            main: path.resolve(__dirname, 'src', 'index.js'),
+          }
         : path.resolve(__dirname, 'src', 'index.js'),
       output: {
         path: path.resolve(__dirname, 'dist'),
@@ -46,6 +49,17 @@ module.exports = (env = { dev: true }) => {
           ? new HtmlWebpackPlugin({
               title: pkg.name,
               template: path.join(__dirname, 'example', 'index.template.html'),
+              inject: false,
+            })
+          : null,
+        env.dev
+          ? new HtmlWebpackPlugin({
+              template: path.join(
+                __dirname,
+                'example',
+                'index_wc.template.html'
+              ),
+              filename: 'index_wc.html',
               inject: false,
             })
           : null,

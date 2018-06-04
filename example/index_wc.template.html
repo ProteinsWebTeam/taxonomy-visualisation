@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta lang="en-GB" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      body {
+        background-color: lightgray;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        width: 80vw;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+      }
+
+      .container > * {
+        border: 1px solid black;
+      }
+
+      #focus-root {
+        background-color: honeydew;
+        height: 5em;
+      }
+
+      #focus-root .desc {
+        max-width: calc(100% - 2.5 * 5em);
+      }
+
+      #tree-root{
+        background-color: azure;
+        flex: 1;
+        font-family: Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+
+      <label for="toggle-fisheye"><input type="checkbox" id="toggle-fisheye" checked />Toggle Fisheye</label>
+      <div id="focus-root"></div>
+      <taxonomy-visualisation
+        id="tree-root"
+        initial-max-nodes="10"
+        enable-fisheye
+        focus-id="focus-root"
+      />
+    </main>
+    <!-- Required for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <!-- Web component polyfill (only loads what it needs) -->
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-lite.js" charset="utf-8"></script>
+    <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js" charset="utf-8"></script>
+
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>" defer></script>
+    <script>
+    window.onload = () => {
+      const visualisation = document.getElementById("tree-root");
+      fetch("example/data/1.json")
+        .then(r=>r.json())
+        .then(data => {
+          console.log(data);
+          visualisation.data = data;
+        });
+      document.getElementById('toggle-fisheye').addEventListener('change', e => {
+        if (e.target.checked)
+          visualisation.setAttribute('enable-fisheye', 'enable-fisheye');
+        else
+          visualisation.removeAttribute('enable-fisheye');
+      });
+
+    }
+    </script>
+  </body>
+</html>

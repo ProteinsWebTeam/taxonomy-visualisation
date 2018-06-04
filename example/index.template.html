@@ -52,8 +52,6 @@
       <div id="focus-root"></div>
       <svg id="tree-root"></svg>
     </main>
-    <% for (const chunk of Object.keys(htmlWebpackPlugin.files.chunks)) { %>
-    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" defer></script>
-    <% } %>
+    <script src="<%= htmlWebpackPlugin.files.chunks.example.entry %>" defer></script>
   </body>
 </html>

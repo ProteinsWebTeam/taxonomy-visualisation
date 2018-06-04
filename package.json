@@ -57,6 +57,9 @@
           "modules": false,
           "loose": true,
           "useBuiltIns": true,
+          "plugins": [
+              "external-helpers"
+          ],
           "targets": {
             "browsers": "last 1 version, > 10%"
           }
@@ -92,10 +95,14 @@
     "coverageDirectory": "reports/jest-coverage"
   },
   "devDependencies": {
+    "@webcomponents/webcomponentsjs": "^2.0.0",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.3",
     "babel-loader": "7.1.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-custom-element-classes": "^0.1.0",
     "babel-plugin-transform-es2015-modules-commonjs": "6.26.2",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "1.7.0",
     "coveralls": "3.0.1",
     "d3": "5.4.0",

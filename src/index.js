@@ -1,277 +1,57 @@
-import { max, tree as d3Tree, select } from 'd3';
+import TaxonomyVisualisation from './taxonomy-visualisation';
 
-// extending d3's defaults
-import hierarchy from './hierarchy';
-
-import { updateFocusSize, updateTreeSize } from './update-size';
-import collapse from './collapse';
-import focus from './focus';
-import toggle from './toggle';
-import getDepthCounts from './get-depth-counts';
-import getMaxDepth from './get-max-depth';
-
-import draw from './draw';
-
-const DEFAULT_INITIAL_MAX_NODES = 10;
-
-export default class TaxonomyVisualisation {
-  constructor(
-    data,
-    {
-      tree,
-      focus,
-      initialMaxNodes = DEFAULT_INITIAL_MAX_NODES,
-      enableFisheye = false,
-    } = {}
-  ) {
-    this._global = {
-      tree: d3Tree(),
-      selection: {
-        tree: null,
-        focus: null,
-      },
-      initialMaxNodes: +initialMaxNodes || DEFAULT_INITIAL_MAX_NODES,
-      instance: this,
+class TaxonomyVisualisationElement extends HTMLElement {
+  connectedCallback() {
+    this.render();
+  }
+  static get observedAttributes() {
+    return ['enable-fisheye', 'initial-max-nodes'];
+  }
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (!this._visualisation) return;
+    if (name === 'initial-max-nodes') {
+      this._visualisation.initialMaxNodes = newValue;
+    }
+    if (name === 'enable-fisheye') {
+      this._visualisation.enableFisheye = !!newValue;
+    }
+  }
+  render() {
+    this._svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    this._svg.style.display = 'block';
+    this._svg.style.width = '100%';
+    this._svg.style.height = '100%';
+    this.appendChild(this._svg);
+    const initialMaxNodes = this.getAttribute('initial-max-nodes') || 10;
+    const enableFisheye = this.hasAttribute('enable-fisheye');
+    this._visualisation = new TaxonomyVisualisation(null, {
+      initialMaxNodes,
       enableFisheye,
-    };
-    this._listenersPerType = new Map([
-      ['click', new Set()],
-      ['focus', new Set()],
-    ]);
-    // call the setters, this is on purpose to share sanity checking logic
-    this.data = data;
-    this.tree = tree;
-    this.focus = focus;
-
-    // bind methods to this instance
-    // private
-    this._keyDownEventListener = this._keyDownEventListener.bind(this);
-    this._eventListenerCommon = this._eventListenerCommon.bind(this);
-    // public
-    this.redraw = this.redraw.bind(this);
-    this.focusNodeWithID = this.focusNodeWithID.bind(this);
-    this.addEventListener = this.addEventListener.bind(this);
-    this.removeEventListener = this.removeEventListener.bind(this);
-    this.cleanup = this.cleanup.bind(this);
-  }
-
-  // private methods
-  _keyDownEventListener(e) {
-    switch (e.key) {
-      case 'ArrowDown':
-        e.preventDefault();
-        // Focus next sibling
-        focus(this._global, this._global.focused.sibling(1));
-        this.redraw();
-        break;
-      case 'ArrowUp':
-        e.preventDefault();
-        // Focus previous sibling
-        focus(this._global, this._global.focused.sibling(-1));
-        this.redraw();
-        break;
-      case 'ArrowLeft':
-        e.preventDefault();
-        // Focus parent
-        focus(this._global, this._global.focused.parent);
-        this.redraw();
-        break;
-      case 'ArrowRight':
-        e.preventDefault();
-        // If collapsed, open
-        if (this._global.focused._children) {
-          toggle(this._global, this._global.focused);
-        }
-        // Focus first child
-        focus(
-          this._global,
-          this._global.focused.children && this._global.focused.children[0]
-        );
-        this.redraw();
-        break;
-      case 'Enter':
-        e.preventDefault();
-        toggle(this._global, this._global.focused);
-        this.redraw();
-        break;
-      default:
-        return;
-    }
-  }
-
-  // public methods
-  // 'redraw' forces the redrawing of the graphics
-  redraw() {
-    draw(this._global);
-  }
-
-  getDataFromEvent(event) {
-    if (!event.target) return null;
-    const node = select(event.target).datum();
-    if (!node) return null;
-    return node.data;
-  }
-
-  // getters/setters
-  // data
-  set data(data) {
-    if (Array.isArray(data)) throw new Error('Input data cant be an array');
-
-    this._global.data = data || {};
-    this._global.root = hierarchy(this._global.data);
-    // Specific cases
-    // A hit count has been defined
-    if (this._global.root.data.hitcount) {
-      this._global.root.sort((a, b) => b.data.hitcount - a.data.hitcount);
-    }
-    this._global.all = this._global.root.descendants();
-    // Initial node collapse
-    const maxDepth = getMaxDepth(
-      getDepthCounts(this._global.all),
-      this._global.initialMaxNodes
-    );
-    for (const node of this._global.all) {
-      if (node.depth >= maxDepth) collapse(node);
-    }
-
-    // Set focus to root
-    focus(this._global, this._global.root);
-
-    // Specific cases
-    // A hit distribution has been defined
-    if (
-      this._global.root.data.hitdist &&
-      this._global.root.data.hitdist.length
-    ) {
-      this._global.maxCountBin = max(this._global.all, node =>
-        max(node.data.hitdist)
-      );
-      this._global.nBins = this._global.root.data.hitdist.length;
-    }
-
-    this.redraw();
-  }
-
-  get data() {
-    return this._global.data;
-  }
-
-  // tree
-  set tree(element) {
-    if (!element) {
-      this._global.selection.tree = null;
-      return;
-    }
-    if (element.tagName.toLowerCase() !== 'svg') {
-      throw new Error('Root element for the tree needs to be an SVG element');
-    }
-    this._global.selection.tree = select(element).attr('tabindex', 0);
-
-    // move focus according to keyboard
-    element.addEventListener('keydown', this._keyDownEventListener.bind(this));
-    // resize according to available size
-    updateTreeSize(this._global.selection.tree, this._global);
-    // ... and corresponding resizes
-    window.addEventListener('resize', () => {
-      updateTreeSize(this._global.selection.tree, this._global);
-      this.redraw();
     });
-
-    this.redraw();
-  }
-
-  get tree() {
-    if (this._global.selection.tree) return this._global.selection.tree.node();
-  }
-
-  // focus
-  set focus(element) {
-    if (!element) {
-      this._global.selection.focus = null;
-      return;
+    this._visualisation.tree = this._svg;
+    const focusId = this.getAttribute('focus-id') || null;
+    if (focusId) {
+      this._visualisation.focus = document.getElementById(focusId);
     }
-    // Replace possible loading elements
-    for (const child of element.children) {
-      element.removeChild(child);
-    }
-    const root = (this._global.selection.focus = select(element));
-
-    const desc = root
-      .append('div')
-      .attr('class', 'desc')
-      .style('display', 'inline-block');
-    desc
-      .append('p')
-      .attr('class', 'lineage')
-      .append('span')
-      .text('Lineage:');
-    desc.append('p').attr('class', 'name');
-    // Histogram
-    root
-      .append('svg')
-      .attr('class', 'hits')
-      .attr('width', 200)
-      .attr('height', 100)
-      .attr('viewBox', '0 0 200 100')
-      .style('float', 'right')
-      .style('height', '100%')
-      // Background
-      .append('rect')
-      .attr('class', 'hits-bg')
-      .attr('fill', '#fff')
-      .attr('width', 200)
-      .attr('height', 100);
-
-    // resize according to available size
-    updateFocusSize(this._global.selection.focus);
-
-    this.redraw();
   }
-
-  get focus() {
-    if (this._global.selection.tree) return this._global.selection.tree.node();
+  set data(data) {
+    this._visualisation.data = data;
   }
-
   set enableFisheye(value) {
-    this._global.enableFisheye = !!value;
-    this.redraw();
-  }
-
-  get enableFisheye() {
-    return this._global.enableFisheye;
-  }
-
-  _eventListenerCommon(type, fun) {
-    if (typeof fun !== 'function') throw new Error('Did not pass a function');
-    const listeners = this._listenersPerType.get(type);
-    if (!listeners) throw new Error(`'${type}' is not a supported event type`);
-    return listeners;
-  }
-
-  focusNodeWithID(id) {
-    // Try to find the node with the corresponding ID
-    const toBeFocused = this._global.all.find(node => node.data.id === id);
-    // Just returns without doing anything if didn't find
-    if (!toBeFocused) return;
-    // Set focus to found node
-    focus(this._global, toBeFocused);
-  }
-
-  addEventListener(type, fun) {
-    const listeners = this._eventListenerCommon(type, fun);
-    listeners.add(fun);
-    return fun;
-  }
-
-  removeEventListener(type, fun) {
-    const listeners = this._eventListenerCommon(type, fun);
-    listeners.delete(fun);
-  }
-
-  cleanup() {
-    for (const [, listeners] of this._listenersPerType) listeners.clear();
-    this._listenersPerType.clear();
-    // remove references
-    this._global.instance = null;
+    this._visualisation.enableFisheye = value;
   }
 }
+const loadComponent = function() {
+  customElements.define('taxonomy-visualisation', TaxonomyVisualisationElement);
+};
+
+// Conditional loading of polyfill
+if (window.customElements) {
+  loadComponent();
+} else {
+  document.addEventListener('WebComponentsReady', function() {
+    loadComponent();
+  });
+}
+
+export default TaxonomyVisualisation;
