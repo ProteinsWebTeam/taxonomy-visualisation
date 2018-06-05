@@ -213,6 +213,6 @@ type Node = {
 
    DOM Element containing the focus visualisation.
 
- - `enableFisheye: Boolean` (read-write)
-
+ - `fisheye: Boolean` (read-write)
+ 
    Enables/disables the fisheye mode to have a better view of the focused node.

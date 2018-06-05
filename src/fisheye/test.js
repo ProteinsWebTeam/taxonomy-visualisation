@@ -12,14 +12,14 @@ describe('FishEye', () => {
   beforeEach(() => {
     treeCopy = JSON.parse(JSON.stringify(tree));
     global = {
-      enableFisheye: true,
+      fisheye: true,
       root: treeCopy,
       focused: treeCopy.children[1],
     };
   });
 
   test('if disabled, the tree does not change', () => {
-    global.enableFisheye = false;
+    global.fisheye = false;
     applyFishEye(global);
     expect(tree).toEqual(treeCopy);
   });

@@ -6,7 +6,7 @@ import data from './data/1';
 // One way to instantiate the visualisation:
 const visualisation = new TaxonomyVisualisation(data, {
   initialMaxNodes: 30,
-  enableFisheye: true,
+  fisheye: true,
 });
 // visualisation.data = data;
 visualisation.tree = document.getElementById('tree-root');
@@ -20,7 +20,7 @@ visualisation.focus.addEventListener('click', event =>
   console.log(visualisation.getDataFromEvent(event))
 );
 document.getElementById('toggle-fisheye').addEventListener('change', e => {
-  visualisation.enableFisheye = e.target.checked;
+  visualisation.fisheye = e.target.checked;
 });
 
 // Other way to do it:

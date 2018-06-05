@@ -4,18 +4,21 @@ class TaxonomyVisualisationElement extends HTMLElement {
   connectedCallback() {
     this.render();
   }
+
   static get observedAttributes() {
-    return ['enable-fisheye', 'initial-max-nodes'];
+    return ['fisheye', 'initial-max-nodes'];
   }
+
   attributeChangedCallback(name, oldValue, newValue) {
     if (!this._visualisation) return;
     if (name === 'initial-max-nodes') {
       this._visualisation.initialMaxNodes = newValue;
     }
-    if (name === 'enable-fisheye') {
-      this._visualisation.enableFisheye = !!newValue;
+    if (name === 'fisheye') {
+      this._visualisation.fisheye = !!newValue;
     }
   }
+
   render() {
     this._svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     this._svg.style.display = 'block';
@@ -23,10 +26,10 @@ class TaxonomyVisualisationElement extends HTMLElement {
     this._svg.style.height = '100%';
     this.appendChild(this._svg);
     const initialMaxNodes = this.getAttribute('initial-max-nodes') || 10;
-    const enableFisheye = this.hasAttribute('enable-fisheye');
+    const fisheye = this.hasAttribute('fisheye');
     this._visualisation = new TaxonomyVisualisation(null, {
       initialMaxNodes,
-      enableFisheye,
+      fisheye,
     });
     this._visualisation.tree = this._svg;
     const focusId = this.getAttribute('focus-id') || null;
@@ -37,13 +40,20 @@ class TaxonomyVisualisationElement extends HTMLElement {
       this._visualisation.data = e.detail.payload;
     });
   }
+
   set data(data) {
     this._visualisation.data = data;
   }
-  set enableFisheye(value) {
-    this._visualisation.enableFisheye = value;
+
+  set fisheye(value) {
+    this._visualisation.fisheye = value;
+  }
+
+  get fisheye() {
+    return this._visualisation.fisheye;
   }
 }
+
 const loadComponent = function() {
   customElements.define('taxonomy-visualisation', TaxonomyVisualisationElement);
 };

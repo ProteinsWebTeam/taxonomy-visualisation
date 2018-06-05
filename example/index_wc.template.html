@@ -53,7 +53,7 @@
       <taxonomy-visualisation
         id="tree-root"
         initial-max-nodes="10"
-        enable-fisheye
+        fisheye
         focus-id="focus-root"
       />
     </main>
@@ -74,13 +74,10 @@
           console.log(data);
           visualisation.data = data;
         });
-      document.getElementById('toggle-fisheye').addEventListener('change', e => {
-        if (e.target.checked)
-          visualisation.setAttribute('enable-fisheye', 'enable-fisheye');
-        else
-          visualisation.removeAttribute('enable-fisheye');
-      });
-
+      document.getElementById('toggle-fisheye').addEventListener(
+        'change',
+        e => visualisation.fisheye = e.target.checked
+      );
     }
     </script>
   </body>
