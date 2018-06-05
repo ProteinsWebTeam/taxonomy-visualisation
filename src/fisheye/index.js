@@ -14,11 +14,7 @@ const recalculatePos = (node, x0, y0) => {
 };
 
 export default global => {
-  if (
-    global.enableFisheye &&
-    global.focused &&
-    global.focused !== global.root
-  ) {
+  if (global.fisheye && global.focused && global.focused !== global.root) {
     const x = global.focused.x || 0;
     const y = global.focused.y || 0;
     if (x) recalculatePos(global.root, x, y);

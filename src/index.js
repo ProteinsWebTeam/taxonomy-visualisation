@@ -21,7 +21,7 @@ export default class TaxonomyVisualisation {
       tree,
       focus,
       initialMaxNodes = DEFAULT_INITIAL_MAX_NODES,
-      enableFisheye = false,
+      fisheye = false,
     } = {}
   ) {
     this._global = {
@@ -32,7 +32,7 @@ export default class TaxonomyVisualisation {
       },
       initialMaxNodes: +initialMaxNodes || DEFAULT_INITIAL_MAX_NODES,
       instance: this,
-      enableFisheye,
+      fisheye,
     };
     this._listenersPerType = new Map([
       ['click', new Set()],
@@ -232,13 +232,13 @@ export default class TaxonomyVisualisation {
     if (this._global.selection.tree) return this._global.selection.tree.node();
   }
 
-  set enableFisheye(value) {
-    this._global.enableFisheye = !!value;
+  set fisheye(value) {
+    this._global.fisheye = !!value;
     this.redraw();
   }
 
-  get enableFisheye() {
-    return this._global.enableFisheye;
+  get fisheye() {
+    return this._global.fisheye;
   }
 
   _eventListenerCommon(type, fun) {
