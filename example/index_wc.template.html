@@ -55,7 +55,11 @@
         initial-max-nodes="10"
         fisheye
         focus-id="focus-root"
-      />
+      >
+        <data-loader>
+          <source src="example/data/1.json">
+        </data-loader>
+      </taxonomy-visualisation>
     </main>
     <!-- Required for IE11 -->
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
@@ -63,17 +67,19 @@
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-lite.js" charset="utf-8"></script>
     <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
     <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js" charset="utf-8"></script>
+    <!-- <data-loader> -->
+    <script src="https://cdn.jsdelivr.net/npm/data-loader" charset="utf-8"></script>
 
     <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>" defer></script>
     <script>
     window.onload = () => {
       const visualisation = document.getElementById("tree-root");
-      fetch("example/data/1.json")
-        .then(r=>r.json())
-        .then(data => {
-          console.log(data);
-          visualisation.data = data;
-        });
+      // fetch("example/data/1.json")
+      //   .then(r=>r.json())
+      //   .then(data => {
+      //     console.log(data);
+      //     visualisation.data = data;
+      //   });
       document.getElementById('toggle-fisheye').addEventListener(
         'change',
         e => visualisation.fisheye = e.target.checked

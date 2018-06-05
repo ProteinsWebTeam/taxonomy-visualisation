@@ -1,12 +1,23 @@
 import TaxonomyVisualisation from './taxonomy-visualisation';
 
 class TaxonomyVisualisationElement extends HTMLElement {
-  connectedCallback() {
-    this.render();
-  }
-
   static get observedAttributes() {
     return ['fisheye', 'initial-max-nodes'];
+  }
+
+  constructor() {
+    super();
+
+    this._loadListener = this._loadListener.bind(this);
+  }
+
+  connectedCallback() {
+    this.render();
+    const dataLoader = this.querySelector('data-loader');
+    if (dataLoader && dataLoader.data) {
+      this._visualisation.data = dataLoader.data;
+    }
+    this.addEventListener('load', this._loadListener);
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -17,6 +28,10 @@ class TaxonomyVisualisationElement extends HTMLElement {
     if (name === 'fisheye') {
       this._visualisation.fisheye = !!newValue;
     }
+  }
+
+  disconnectedCallback() {
+    this.removeEventListener('load', this._loadListener);
   }
 
   render() {
@@ -36,9 +51,6 @@ class TaxonomyVisualisationElement extends HTMLElement {
     if (focusId) {
       this._visualisation.focus = document.getElementById(focusId);
     }
-    this.addEventListener('load', e => {
-      this._visualisation.data = e.detail.payload;
-    });
   }
 
   set data(data) {
@@ -51,6 +63,10 @@ class TaxonomyVisualisationElement extends HTMLElement {
 
   get fisheye() {
     return this._visualisation.fisheye;
+  }
+
+  _loadListener(e) {
+    this._visualisation.data = e.detail.payload;
   }
 }
 
