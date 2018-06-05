@@ -33,6 +33,9 @@ class TaxonomyVisualisationElement extends HTMLElement {
     if (focusId) {
       this._visualisation.focus = document.getElementById(focusId);
     }
+    this.addEventListener('load', e => {
+      this._visualisation.data = e.detail.payload;
+    });
   }
   set data(data) {
     this._visualisation.data = data;

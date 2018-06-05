@@ -12,6 +12,9 @@ _in development_
 ### Install the library
 This library is available on npm as `taxonomy-visualisation`.
 
+See it running [Here](https://proteinswebteam.github.io/taxonomy-visualisation/).
+
+
 To install, run `npm install --save taxonomy-visualisation`.
 
 ### Load the library
@@ -211,5 +214,5 @@ type Node = {
    DOM Element containing the focus visualisation.
 
  - `enableFisheye: Boolean` (read-write)
- 
+
    Enables/disables the fisheye mode to have a better view of the focused node.
