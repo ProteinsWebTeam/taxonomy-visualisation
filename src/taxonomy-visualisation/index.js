@@ -14,6 +14,21 @@ import draw from '../draw';
 
 const DEFAULT_INITIAL_MAX_NODES = 10;
 
+const DEFAULT_CLASSNAMES = {
+  ancestor: 'ancestor',
+  arrow: 'arrow',
+  bin: 'bin',
+  focusRing: 'focus-ring',
+  focused: 'focused',
+  hits: 'hits',
+  hitsBg: 'hits-bg',
+  inPath: 'in-path',
+  label: 'label',
+  link: 'link',
+  name: 'name',
+  node: 'node',
+};
+
 export default class TaxonomyVisualisation {
   constructor(
     data,
@@ -22,6 +37,7 @@ export default class TaxonomyVisualisation {
       focus,
       initialMaxNodes = DEFAULT_INITIAL_MAX_NODES,
       fisheye = false,
+      classnames = {},
     } = {}
   ) {
     this._global = {
@@ -33,7 +49,9 @@ export default class TaxonomyVisualisation {
       initialMaxNodes: +initialMaxNodes || DEFAULT_INITIAL_MAX_NODES,
       instance: this,
       fisheye,
+      classnames: Object.assign({}, classnames, DEFAULT_CLASSNAMES),
     };
+    window.global = this._global;
     this._listenersPerType = new Map([
       ['click', new Set()],
       ['focus', new Set()],

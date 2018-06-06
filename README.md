@@ -162,7 +162,36 @@ store more information that the one required to draw the tree.
     a positive `number` corresponding to the maximum number of node to display at once for the initial load. For example if the number of nodes from the root to the depth of 2 is 8, but the number of nodes from the root to the depth of 3 is 11, then only display up to the level of 2. all the nodes at this second level will be collapsed and none of their children will be displayed by default. `+Infinity` is a valid value, and will display all of the nodes in the tree.
 
   - fisheye: (optional, default: `false`)
+
     a boolean representing if the fisheye view will be activated or not on instantiation. It can still be modified after through the instance's `fisheye` attribute.
+
+  - classnames: (optional)
+
+    A map of classnames to use instead of the defaults. Can be useful if using [css-modules](https://github.com/css-modules/css-modules) for example.
+
+    - ancestor: (optional, default: `'ancestor'`)
+
+    - arrow: (optional, default: `'arrow'`)
+
+    - bin: (optional, default: `'bin'`)
+
+    - focusRing: (optional, default: `'focus-ring'`)
+
+    - focused: (optional, default: `'focused'`)
+
+    - hits: (optional, default: `'hits'`)
+
+    - hitsBg: (optional, default: `'hits-bg'`)
+
+    - inPath: (optional, default: `'in-path'`)
+
+    - label: (optional, default: `'label'`)
+
+    - link: (optional, default: `'link'`)
+
+    - name: (optional, default: `'name'`)
+
+    - node: (optional, default: `'node'`)
 
 #### methods
 

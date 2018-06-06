@@ -1,17 +1,20 @@
 import { linkHorizontal } from 'd3';
+import cn from 'classnames';
 
 import { colors } from '../../theme';
 
 export default global => {
   // Each link
-  const link = global.selection.tree.selectAll('.link').data(
-    global.root.links(),
-    ({
-      target: {
-        data: { id },
-      },
-    }) => id
-  );
+  const link = global.selection.tree
+    .selectAll(`.${global.classnames.link}`)
+    .data(
+      global.root.links(),
+      ({
+        target: {
+          data: { id },
+        },
+      }) => id
+    );
 
   // Link enter
   link
@@ -20,9 +23,8 @@ export default global => {
     .attr('opacity', 0)
     // Link enter + update
     .merge(link)
-    .attr(
-      'class',
-      ({ target: { inPath } }) => `link${inPath ? ' in-path' : ''}`
+    .attr('class', ({ target: { inPath } }) =>
+      cn(global.classnames.link, { [global.classnames.inPath]: inPath })
     )
     .attr('fill', 'none')
     .transition()
