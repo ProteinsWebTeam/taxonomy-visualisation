@@ -15,7 +15,7 @@
   },
   "module": "src/index.js",
   "jsnext:main": "src/index.js",
-  "main": "dist/taxonomy-visualisation.js",
+  "main": "dist/taxonomy-visualisation-main.js",
   "author": "Aurélien Luciani <luciani@ebi.ac.uk> (https://github.com/aurel-l)",
   "keywords": [
     "visualisation",
@@ -25,7 +25,10 @@
     "species",
     "hmmer",
     "interpro",
-    "ebi"
+    "ebi",
+    "d3",
+    "custom-element",
+    "web-component"
   ],
   "license": "Apache-2.0",
   "scripts": {
@@ -44,7 +47,7 @@
     "linters": {
       "*.js": [
         "eslint --fix --ignore-path .gitignore",
-        "prettier --single-quote --trailing-comma es5 --write",
+        "prettier --write",
         "git add"
       ]
     }
@@ -58,7 +61,7 @@
           "loose": true,
           "useBuiltIns": true,
           "plugins": [
-              "external-helpers"
+            "external-helpers"
           ],
           "targets": {
             "browsers": "last 1 version, > 10%"

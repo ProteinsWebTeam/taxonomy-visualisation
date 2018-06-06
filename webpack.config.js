@@ -28,16 +28,15 @@ module.exports = (env = { dev: true }) => {
   const configWithEnv = Object.assign(
     {
       mode: env.production ? 'production' : 'development',
-      entry: env.dev
-        ? {
-            example: path.resolve(__dirname, 'example', 'index.js'),
-            main: path.resolve(__dirname, 'src', 'index.js'),
-          }
-        : path.resolve(__dirname, 'src', 'index.js'),
+      entry: {
+        main: path.resolve(__dirname, 'src', 'index.js'),
+        ce: path.resolve(__dirname, 'src', 'index.ce.js'),
+      },
       output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: env.dev ? '[id].[name].[hash:6].js' : `${pkg.name}.js`,
+        filename: env.dev ? '[id].[name].[hash:6].js' : `${pkg.name}-[name].js`,
         library: 'TaxonomyVisualisation',
+        libraryExport: 'default',
       },
       plugins: [
         env.production
@@ -57,9 +56,9 @@ module.exports = (env = { dev: true }) => {
               template: path.join(
                 __dirname,
                 'example',
-                'index_wc.template.html'
+                'index_ce.template.html'
               ),
-              filename: 'index_wc.html',
+              filename: 'index_ce.html',
               inject: false,
             })
           : null,

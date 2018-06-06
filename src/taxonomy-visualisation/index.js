@@ -233,8 +233,11 @@ export default class TaxonomyVisualisation {
   }
 
   set fisheye(value) {
-    this._global.fisheye = !!value;
-    this.redraw();
+    const _value = !!value;
+    if (this._global.fisheye !== _value) {
+      this._global.fisheye = _value;
+      this.redraw();
+    }
   }
 
   get fisheye() {
