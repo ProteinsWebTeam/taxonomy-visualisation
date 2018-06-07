@@ -49,6 +49,10 @@
         "eslint --fix --ignore-path .gitignore",
         "prettier --write",
         "git add"
+      ],
+      "*.md": [
+        "prettier --write",
+        "git add"
       ]
     }
   },
