@@ -6,7 +6,7 @@
 
 _in development_
 
-This part is to use as a JavaScript library, if you want to use this visulisation as a custom element see lower in this readme.
+This part is to use as a JavaScript library, if you want to use this visualisation as a custom element see lower in this readme.
 
 ## Usage
 
@@ -170,51 +170,51 @@ store more information that the one required to draw the tree.
     A map of classnames to use instead of the defaults. Can be useful if using [css-modules](https://github.com/css-modules/css-modules) for example.
 
     - ancestor: (optional, default: `'ancestor'`)
-      
+
       applied to all parent nodes in the focus view (including the focused node)
 
     - arrow: (optional, default: `'arrow'`)
-    
+
       the arrow used to communicate that there are collapsed children
 
     - bin: (optional, default: `'bin'`)
-    
+
       every bar used in the histogram
 
     - focusRing: (optional, default: `'focus-ring'`)
-    
+
       the ring used to show the currently focused node
 
     - focused: (optional, default: `'focused'`)
-    
+
       applied only on the focused node
 
     - hits: (optional, default: `'hits'`)
-    
+
       applied to the histogram container
 
     - hitsBg: (optional, default: `'hits-bg'`)
-    
+
       applied to the histogram background
 
     - inPath: (optional, default: `'in-path'`)
-    
+
       applied to all the nodes and paths either parents or children of the focused node (including the focused node)
 
     - label: (optional, default: `'label'`)
-    
+
       text group displaying the name of a node and the arrow if needed
 
     - link: (optional, default: `'link'`)
-    
+
       path between 2 nodes
 
     - name: (optional, default: `'name'`)
-    
+
       text displaying the name of a node
 
     - node: (optional, default: `'node'`)
-    
+
       node on screen
 
 #### methods
