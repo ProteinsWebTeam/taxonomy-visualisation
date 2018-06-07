@@ -49,7 +49,7 @@ export default class TaxonomyVisualisation {
       initialMaxNodes: +initialMaxNodes || DEFAULT_INITIAL_MAX_NODES,
       instance: this,
       fisheye,
-      classnames: Object.assign({}, classnames, DEFAULT_CLASSNAMES),
+      classnames: Object.assign({}, DEFAULT_CLASSNAMES, classnames),
     };
     window.global = this._global;
     this._listenersPerType = new Map([
