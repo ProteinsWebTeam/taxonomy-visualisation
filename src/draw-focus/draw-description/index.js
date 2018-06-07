@@ -1,3 +1,5 @@
+import cn from 'classnames';
+
 import focus from '../../focus';
 
 export default global => {
@@ -9,12 +11,14 @@ export default global => {
   ancestors
     .enter()
     .append('a')
-    .attr('class', global.classnames.ancestor)
     .on('click', node => {
       focus(global, node);
       global.instance.redraw();
     })
     .merge(ancestors)
+    .attr('class', ({ focused }) =>
+      cn(global.classnames.ancestor, { [global.classnames.focused]: focused })
+    )
     .text(node => ` → ${node.data.name}`);
   ancestors.exit().remove();
 
