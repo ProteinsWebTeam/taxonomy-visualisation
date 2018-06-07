@@ -28,13 +28,15 @@ module.exports = (env = { dev: true }) => {
   const configWithEnv = Object.assign(
     {
       mode: env.production ? 'production' : 'development',
-      entry: env.dev
-        ? path.resolve(__dirname, 'example', 'index.js')
-        : path.resolve(__dirname, 'src', 'index.js'),
+      entry: {
+        main: path.resolve(__dirname, 'src', 'index.js'),
+        ce: path.resolve(__dirname, 'src', 'index.ce.js'),
+      },
       output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: env.dev ? '[id].[name].[hash:6].js' : `${pkg.name}.js`,
+        filename: env.dev ? '[id].[name].[hash:6].js' : `${pkg.name}-[name].js`,
         library: 'TaxonomyVisualisation',
+        libraryExport: 'default',
       },
       plugins: [
         env.production
@@ -46,6 +48,17 @@ module.exports = (env = { dev: true }) => {
           ? new HtmlWebpackPlugin({
               title: pkg.name,
               template: path.join(__dirname, 'example', 'index.template.html'),
+              inject: false,
+            })
+          : null,
+        env.dev
+          ? new HtmlWebpackPlugin({
+              template: path.join(
+                __dirname,
+                'example',
+                'index_ce.template.html'
+              ),
+              filename: 'index_ce.html',
               inject: false,
             })
           : null,

@@ -5,19 +5,25 @@ const HEIGHT = 100;
 
 const DELAY_OFFSET = 10;
 
-export default ({ selection: { focus }, focused, nBins, maxCountBin }) => {
+export default ({
+  selection: { focus },
+  focused,
+  nBins,
+  maxCountBin,
+  classnames: { bin, hits },
+}) => {
   const binWidth = WIDTH / nBins;
 
-  const histogram = focus.selectAll('.hits').data([focused]);
+  const histogram = focus.selectAll(`.${hits}`).data([focused]);
 
   const bins = histogram
     .data([focused])
-    .selectAll('.bin')
+    .selectAll(`.${bin}`)
     .data(({ data: { hitdist = [] } }) => hitdist);
   bins
     .enter()
     .append('rect')
-    .attr('class', 'bin')
+    .attr('class', bin)
     .attr('fill', colors.off)
     .attr('x', (_, index) => index * binWidth)
     .attr('width', binWidth)
@@ -26,5 +32,5 @@ export default ({ selection: { focus }, focused, nBins, maxCountBin }) => {
     .merge(bins)
     .transition()
     .delay((_, index) => index * DELAY_OFFSET)
-    .attr('y', bin => HEIGHT - bin * HEIGHT / maxCountBin);
+    .attr('y', bin => HEIGHT - (bin * HEIGHT) / maxCountBin);
 };
