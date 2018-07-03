@@ -51,7 +51,6 @@ export default class TaxonomyVisualisation {
       fisheye,
       classnames: Object.assign({}, DEFAULT_CLASSNAMES, classnames),
     };
-    window.global = this._global;
     this._listenersPerType = new Map([
       ['click', new Set()],
       ['focus', new Set()],
