@@ -198,7 +198,9 @@ export default class TaxonomyVisualisation {
   }
 
   get tree() {
-    if (this._global.selection.tree) return this._global.selection.tree.node();
+    return this._global.selection.tree
+      ? this._global.selection.tree.node()
+      : undefined;
   }
 
   // focus
@@ -246,7 +248,9 @@ export default class TaxonomyVisualisation {
   }
 
   get focus() {
-    if (this._global.selection.tree) return this._global.selection.tree.node();
+    return this._global.selection.tree
+      ? this._global.selection.tree.node()
+      : undefined;
   }
 
   set fisheye(value) {

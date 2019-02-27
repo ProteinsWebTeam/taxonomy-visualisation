@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta lang="en-GB" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Taxonomy example for github pages</title>
     <style>
       body {
@@ -38,7 +38,7 @@
         max-width: calc(100% - 2.5 * 5em);
       }
 
-      #tree-root{
+      #tree-root {
         background-color: azure;
         flex: 1;
         font-family: Arial;
@@ -47,8 +47,10 @@
   </head>
   <body>
     <main class="container">
-
-      <label for="toggle-fisheye"><input type="checkbox" id="toggle-fisheye" checked />Toggle Fisheye</label>
+      <label for="toggle-fisheye"
+        ><input type="checkbox" id="toggle-fisheye" checked />Toggle
+        Fisheye</label
+      >
       <div id="focus-root"></div>
       <taxonomy-visualisation
         id="tree-root"
@@ -57,32 +59,48 @@
         focus-id="focus-root"
       >
         <data-loader>
-            <source src="https://raw.githubusercontent.com/ProteinsWebTeam/taxonomy-visualisation/master/example/data/1.json" />
+          <source
+            src="https://raw.githubusercontent.com/ProteinsWebTeam/taxonomy-visualisation/master/example/data/1.json"
+          />
         </data-loader>
       </taxonomy-visualisation>
     </main>
     <!-- Required for IE11 -->
     <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
     <!-- Web component polyfill (only loads what it needs) -->
-    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-lite.js" charset="utf-8"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/webcomponents-lite.js"
+      charset="utf-8"
+    ></script>
     <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js" charset="utf-8"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"
+      charset="utf-8"
+    ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/data-loader@latest/dist/index.js" charset="utf-8" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/data-loader@latest/dist/index.js"
+      charset="utf-8"
+      defer
+    ></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/taxonomy-visualisation@latest/dist/taxonomy-visualisation.js" charset="utf-8" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/taxonomy-visualisation@latest/dist/taxonomy-visualisation.js"
+      charset="utf-8"
+      defer
+    ></script>
     <script>
-    window.onload = () => {
-      const visualisation = document.getElementById("tree-root");
-      const toggle = document.getElementById('toggle-fisheye');
-      toggle.addEventListener('change', event => {
-          event => visualisation.fisheye = event.target.checked
-      });
-      visualisation.addEventListener(
-        'change',
-        event => toggle.checked = visualisation.fisheye
-      );
-    }
+      window.onload = () => {
+        const visualisation = document.getElementById('tree-root');
+        const toggle = document.getElementById('toggle-fisheye');
+        toggle.addEventListener('change', event => {
+          event => (visualisation.fisheye = event.target.checked);
+        });
+        visualisation.addEventListener(
+          'change',
+          event => (toggle.checked = visualisation.fisheye)
+        );
+      };
     </script>
   </body>
 </html>
