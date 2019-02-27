@@ -84,6 +84,7 @@
     "@webcomponents/webcomponentsjs": "2.2.7",
     "babel-eslint": "10.0.1",
     "babel-loader": "^8.0.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "coveralls": "3.0.3",
     "d3": "5.9.1",
     "eslint": "5.14.1",
