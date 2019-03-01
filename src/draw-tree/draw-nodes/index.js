@@ -6,10 +6,11 @@ import focus from '../../focus';
 import { colors } from '../../theme';
 
 export default global => {
+  const descendants = global.root.descendants();
   // Each node
   const node = global.selection.tree
     .selectAll(`.${global.classnames.node}`)
-    .data(global.root.descendants(), ({ data: { id } }) => id);
+    .data(descendants, ({ data: { id } }) => id);
 
   // Node enter
   const nodeEnter = node
@@ -18,12 +19,8 @@ export default global => {
     .attr('opacity', 0)
     .attr('transform', ({ x, y }) => `translate(${y},${x})`)
     // Event listeners
-    .on('click', node => {
-      focus(global, node);
-      global.instance.redraw();
-    })
-    .on('dblclick', node => {
-      toggle(global, node);
+    .on('dblclick', n => {
+      toggle(global, n);
       global.instance.redraw();
     });
   // Node enter + update
@@ -43,8 +40,23 @@ export default global => {
   // Node circle
   nodeEnter
     .append('circle')
-    .attr('r', ({ data: { hitcount = 1 } }) => Math.log(hitcount) + 1)
-    .attr('fill', colors.off);
+    .attr(
+      'r',
+      global.fixedNodeSize === false
+        ? ({ data: { hitcount = 1 } }) => Math.log(hitcount) + 1
+        : global.fixedNodeSize
+    )
+    .attr('fill', colors.off)
+    .on('click', n => {
+      try {
+        // Making sure is the same reference
+        const tmpNode = global.root
+          .descendants()
+          .filter(({ data: { id } }) => id === n.data.id)[0];
+        focus(global, tmpNode);
+        global.instance.redraw();
+      } catch (_) {}
+    });
 
   // Node info group
   const nodeInfo = nodeEnter
@@ -61,7 +73,15 @@ export default global => {
     .style(
       'text-shadow',
       '0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff'
-    );
+    )
+    .on('click', node => {
+      // Emit event from the instance registrations
+      for (const listeners of global.instance._listenersPerType
+        .get('click')
+        .values()) {
+        listeners(new CustomEvent('click', { detail: node.data }));
+      }
+    });
   // Label name
   label.append('tspan').attr('class', global.classnames.name);
   // Label arrow

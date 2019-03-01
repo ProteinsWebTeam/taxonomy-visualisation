@@ -36,6 +36,7 @@ export default class TaxonomyVisualisation {
       tree,
       focus,
       initialMaxNodes = DEFAULT_INITIAL_MAX_NODES,
+      fixedNodeSize = false,
       fisheye = false,
       classnames = {},
     } = {}
@@ -48,6 +49,7 @@ export default class TaxonomyVisualisation {
       },
       initialMaxNodes: +initialMaxNodes || DEFAULT_INITIAL_MAX_NODES,
       instance: this,
+      fixedNodeSize,
       fisheye,
       classnames: Object.assign({}, DEFAULT_CLASSNAMES, classnames),
     };
