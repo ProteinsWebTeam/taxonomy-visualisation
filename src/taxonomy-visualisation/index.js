@@ -41,6 +41,7 @@ export default class TaxonomyVisualisation {
       fisheye = false,
       classnames = {},
       shouldCorrectNodesOutside = false,
+      enableZooming = false,
     } = {}
   ) {
     this._global = {
@@ -54,6 +55,7 @@ export default class TaxonomyVisualisation {
       fixedNodeSize,
       fisheye,
       shouldCorrectNodesOutside,
+      enableZooming,
       classnames: Object.assign({}, DEFAULT_CLASSNAMES, classnames),
       scale: 1,
       margin: 20,
@@ -202,7 +204,8 @@ export default class TaxonomyVisualisation {
       this.redraw();
     });
 
-    addZoominPanning(this._global.selection.tree, this._global);
+    if (this._global.enableZooming)
+      addZoominPanning(this._global.selection.tree, this._global);
 
     this.redraw();
   }

@@ -42,10 +42,12 @@ class TaxonomyVisualisationElement extends HTMLElement {
     }
     if (!this._visualisation) {
       const initialMaxNodes = this.getAttribute('initial-max-nodes');
+      const enableZooming = this.hasAttribute('enable-zooming');
       const fisheye = this.hasAttribute('fisheye');
       this._visualisation = new TaxonomyVisualisation(null, {
         initialMaxNodes,
         fisheye,
+        enableZooming,
       });
       this._visualisation.addEventListener('click', this.dispatchEvent);
       this._visualisation.addEventListener('focus', this.dispatchEvent);

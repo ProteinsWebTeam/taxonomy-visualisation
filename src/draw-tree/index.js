@@ -6,10 +6,11 @@ import applyFisheyeIfEnabled from '../fisheye';
 export default global => {
   global.tree(global.root);
   applyFisheyeIfEnabled(global);
-  global.root.descendants().forEach(d => {
-    d.x *= global.scale;
-    d.y *= global.scale;
-  });
+  if (global.enableZooming)
+    global.root.descendants().forEach(d => {
+      d.x *= global.scale;
+      d.y *= global.scale;
+    });
   drawLinks(global);
   drawFocusRing(global);
   drawNodes(global);
