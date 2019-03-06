@@ -39,6 +39,7 @@ export default class TaxonomyVisualisation {
       fixedNodeSize = false,
       fisheye = false,
       classnames = {},
+      shouldCorrectNodesOutside = false,
     } = {}
   ) {
     this._global = {
@@ -51,6 +52,7 @@ export default class TaxonomyVisualisation {
       instance: this,
       fixedNodeSize,
       fisheye,
+      shouldCorrectNodesOutside,
       classnames: Object.assign({}, DEFAULT_CLASSNAMES, classnames),
     };
     this._listenersPerType = new Map([
@@ -185,6 +187,7 @@ export default class TaxonomyVisualisation {
       throw new Error('Root element for the tree needs to be an SVG element');
     }
     this._global.selection.tree = select(element).attr('tabindex', 0);
+    this._global.svg = element;
 
     // move focus according to keyboard
     element.addEventListener('keydown', this._keyDownEventListener.bind(this));

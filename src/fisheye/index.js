@@ -35,6 +35,55 @@ const recalculatePos = (node, x0, y0) => {
   if (node.children) node.children.forEach(ch => recalculatePos(ch, x0, y0));
 };
 
+const OVER = 1;
+const UNDER = 2;
+/**
+ * It changes the order among the sibilings of the focused node.
+ * if there are nodes among its sibilings that are out of the scope it will move
+ * the focused node to either the top or the bottom, forcing the other nodes to
+ * be in scope.
+ * @param {object} global - The common object of all the components of the library.
+ * @param {int} type - 1: correct nodes over. 2: correct nodes under.
+ */
+const correctNodesOutOfWorkspace = (global, type) => {
+  const { root, focused } = global;
+  if (focused.parent) {
+    const parent = focused.parent;
+    const i = parent.children.indexOf(focused);
+    if (i == 0 || i == parent.children.length - 1) return;
+    if (type == OVER) {
+      parent.children = [
+        focused,
+        ...parent.children.slice(i + 1),
+        ...parent.children.slice(0, i),
+      ];
+    } else {
+      parent.children = [
+        ...parent.children.slice(i + 1),
+        ...parent.children.slice(0, i),
+        focused,
+      ];
+    }
+    global.tree(root);
+    const x = global.focused.x || 0;
+    const y = global.focused.y || 0;
+    if (x) recalculatePos(global.root, x, y);
+  }
+};
+
+const correctNodesOutside = global => {
+  const height = global.svg.getBoundingClientRect().height;
+  const targetNodeDescendants = (
+    global.focused.parent || global.focused
+  ).descendants();
+  const overOutlayers = targetNodeDescendants.filter(({ x }) => x < 0);
+  const underOutlayers = targetNodeDescendants.filter(({ x }) => x > height);
+  if (overOutlayers.length) {
+    correctNodesOutOfWorkspace(global, OVER);
+  } else if (underOutlayers.length) {
+    correctNodesOutOfWorkspace(global, UNDER);
+  }
+};
 /**
  * Applies the fisheye recalculations to the root object in the global attribute.
  * It only gets executed if fissheye is enabled and there is a focused node other than the root.
@@ -45,5 +94,6 @@ export default global => {
     const x = global.focused.x || 0;
     const y = global.focused.y || 0;
     if (x) recalculatePos(global.root, x, y);
+    if (global.shouldCorrectNodesOutside) correctNodesOutside(global);
   }
 };

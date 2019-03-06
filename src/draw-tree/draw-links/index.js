@@ -20,7 +20,6 @@ export default global => {
   link
     .enter()
     .insert('path', ':first-child')
-    // .append('path')
     .attr('opacity', 0)
     // Link enter + update
     .merge(link)
