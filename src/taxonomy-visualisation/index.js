@@ -4,6 +4,7 @@ import { max, tree as d3Tree, select } from 'd3';
 import hierarchy from '../hierarchy';
 
 import { updateFocusSize, updateTreeSize } from '../update-size';
+import addZoominPanning from '../zooming';
 import collapse from '../collapse';
 import focus from '../focus';
 import toggle from '../toggle';
@@ -54,6 +55,8 @@ export default class TaxonomyVisualisation {
       fisheye,
       shouldCorrectNodesOutside,
       classnames: Object.assign({}, DEFAULT_CLASSNAMES, classnames),
+      scale: 1,
+      margin: 20,
     };
     this._listenersPerType = new Map([
       ['click', new Set()],
@@ -198,6 +201,8 @@ export default class TaxonomyVisualisation {
       updateTreeSize(this._global.selection.tree, this._global);
       this.redraw();
     });
+
+    addZoominPanning(this._global.selection.tree, this._global);
 
     this.redraw();
   }

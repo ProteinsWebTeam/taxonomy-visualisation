@@ -10,10 +10,13 @@ export default global => {
     .data(
       global.root.links(),
       ({
-        target: {
-          data: { id },
+        source: {
+          data: { id: sid },
         },
-      }) => id
+        target: {
+          data: { id: tid },
+        },
+      }) => `${sid}_${tid}`
     );
 
   // Link enter

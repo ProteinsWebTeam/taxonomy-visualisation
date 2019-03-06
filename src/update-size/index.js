@@ -19,7 +19,7 @@ export const updateTreeSize = (treeSelection, global) => {
 
   treeSelection.attr('width', width);
   treeSelection.attr('height', height);
-  treeSelection.attr('viewBox', `-${0.75 * margin} 0 ${width} ${height}`);
+  treeSelection.attr('viewBox', `${-global.margin} 0 ${width} ${height}`);
 
   global.tree.size([height, width - 2 * margin]);
 };
