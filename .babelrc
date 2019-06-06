@@ -6,6 +6,7 @@
         "modules": false,
         "loose": true,
         "useBuiltIns": "entry",
+        "corejs": 3,
         "targets": {
           "browsers": "last 1 version, > 10%"
         }
