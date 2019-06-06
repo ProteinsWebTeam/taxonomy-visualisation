@@ -34,7 +34,6 @@
   "scripts": {
     "start": "webpack-dev-server --env.dev",
     "test": "npm run lint && npm run jest",
-    "precommit": "lint-staged",
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run test && npm run build",
     "clean": "rimraf dist",
@@ -42,6 +41,11 @@
     "jest": "jest --notify --coverage src",
     "build": "webpack --env.production",
     "coveralls": "cat reports/jest-coverage/lcov.info | coveralls"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "linters": {
@@ -77,27 +81,27 @@
     "coverageDirectory": "reports/jest-coverage"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
-    "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.3.4",
-    "@webcomponents/webcomponentsjs": "2.2.7",
+    "@babel/core": "7.4.5",
+    "@babel/plugin-transform-modules-commonjs": "7.4.4",
+    "@babel/polyfill": "7.4.4",
+    "@babel/preset-env": "7.4.5",
+    "@webcomponents/webcomponentsjs": "2.2.10",
     "babel-eslint": "10.0.1",
-    "babel-loader": "^8.0.5",
+    "babel-loader": "8.0.6",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "coveralls": "3.0.3",
-    "d3": "5.9.1",
-    "eslint": "5.14.1",
-    "eslint-config-prettier": "4.1.0",
+    "coveralls": "3.0.4",
+    "d3": "5.9.2",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.3.0",
     "html-webpack-plugin": "3.2.0",
-    "husky": "1.3.1",
-    "jest": "24.1.0",
-    "lint-staged": "8.1.4",
-    "prettier": "1.16.4",
+    "husky": "2.4.0",
+    "jest": "24.8.0",
+    "lint-staged": "8.2.0",
+    "prettier": "1.17.1",
     "rimraf": "2.6.3",
-    "webpack": "4.29.5",
-    "webpack-cli": "3.2.3",
-    "webpack-dev-server": "3.2.1"
+    "webpack": "4.33.0",
+    "webpack-cli": "3.3.2",
+    "webpack-dev-server": "3.6.0"
   },
   "dependencies": {
     "classnames": "2.2.6"
