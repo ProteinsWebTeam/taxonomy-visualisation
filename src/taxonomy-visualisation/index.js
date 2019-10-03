@@ -4,7 +4,7 @@ import { max, tree as d3Tree, select } from 'd3';
 import hierarchy from '../hierarchy';
 
 import { updateFocusSize, updateTreeSize } from '../update-size';
-import addZoominPanning from '../zooming';
+import addZoominPanning, { resetZooming } from '../zooming';
 import collapse from '../collapse';
 import focus from '../focus';
 import toggle from '../toggle';
@@ -208,6 +208,10 @@ export default class TaxonomyVisualisation {
       addZoominPanning(this._global.selection.tree, this._global);
 
     this.redraw();
+  }
+  resetZoom() {
+    if (this._global.enableZooming)
+      resetZooming(this._global.selection.tree, this._global);
   }
 
   get tree() {

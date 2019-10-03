@@ -1,12 +1,23 @@
-import { zoom, event } from 'd3';
+import { zoom, event, zoomIdentity } from 'd3';
+
+export const resetZooming = (treeSelection, global) => {
+  treeSelection.call(global._zoom.transform, zoomIdentity);
+};
+
 export default (treeSelection, global) => {
   let tmpX = global.margin;
   let tmpY = 0;
 
   const zooming = () => {
     const { width, height } = treeSelection.node().getBoundingClientRect();
-    if (event.sourceEvent.movementX) tmpX += event.sourceEvent.movementX;
-    if (event.sourceEvent.movementY) tmpY += event.sourceEvent.movementY;
+    if (event.sourceEvent) {
+      if (event.sourceEvent.movementX) tmpX += event.sourceEvent.movementX;
+      if (event.sourceEvent.movementY) tmpY += event.sourceEvent.movementY;
+    } else {
+      // If the sourceEvent is null we assume the reset has been triggered.
+      tmpX = global.margin;
+      tmpY = 0;
+    }
     const k = (global.scale = event.transform.k);
     const edges = {
       right: width - global.margin,
@@ -21,10 +32,9 @@ export default (treeSelection, global) => {
     treeSelection.attr('viewBox', `${-tmpX} ${-tmpY} ${width} ${height}`);
     global.instance.redraw();
   };
+  global._zoom = zoom()
+    .on('zoom', zooming)
+    .scaleExtent([1, 5]);
 
-  treeSelection.call(
-    zoom()
-      .on('zoom', zooming)
-      .scaleExtent([1, 5])
-  );
+  treeSelection.call(global._zoom);
 };
