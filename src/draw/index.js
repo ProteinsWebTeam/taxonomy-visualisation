@@ -6,14 +6,16 @@ const draw = global => {
   if (global.selection.tree) drawTree(global);
 };
 
-let isDrawPlanned = false;
+// let isDrawPlanned = false;
 
 export default global => {
   // Bail if a draw is already planned for the next frame, no need to draw twice
-  if (isDrawPlanned) return;
-  isDrawPlanned = true;
+  if (global._isDrawPlanned) return;
+  global._isDrawPlanned = true;
+  if (!global.test) global.test = 1;
   requestAnimationFrame(() => {
     draw(global);
-    isDrawPlanned = false;
+    global._isDrawPlanned = false;
   });
+  global.test++;
 };
