@@ -58,6 +58,7 @@
         <input type="checkbox" id="toggle-fisheye" checked />Toggle
         Fisheye</label
       >
+      <button id ="reset_zoom">Reset Zoom</button>
       <div id="focus-root"></div>
       <svg id="tree-root"></svg>
     </main>
@@ -84,6 +85,11 @@
           .getElementById('toggle-fisheye')
           .addEventListener('change', e => {
             visualisation.fisheye = e.target.checked;
+          });
+        document
+          .getElementById('reset_zoom')
+          .addEventListener('click', e => {
+            visualisation.resetZoom();
           });
 
         // Other way to do it:
