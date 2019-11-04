@@ -17,6 +17,10 @@ export default ({ selection: { tree }, focused, classnames }) => {
     .merge(focusRing)
     .transition()
     .ease(easeElastic.period(1))
-    .attr('r', ({ data: { hitcount = 1 } }) => Math.log(hitcount) + 1 + 5)
+    .attr(
+      'r',
+      ({ data: { hitcount = 1 } }) =>
+        Math.log(typeof hitcount === 'number' ? hitcount : 1) + 1 + 5
+    )
     .attr('transform', ({ x, y }) => `translate(${y},${x})`);
 };
