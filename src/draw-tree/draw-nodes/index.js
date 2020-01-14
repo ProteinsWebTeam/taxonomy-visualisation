@@ -43,7 +43,8 @@ export default global => {
     .attr(
       'r',
       global.fixedNodeSize === false
-        ? ({ data: { hitcount = 1 } }) => Math.log(hitcount) + 1
+        ? ({ data: { hitcount = 1 } }) =>
+            Math.log(typeof hitcount === 'number' ? hitcount : 1) + 1
         : global.fixedNodeSize
     )
     .attr('fill', colors.off)
