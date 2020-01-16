@@ -42,6 +42,7 @@ export default class TaxonomyVisualisation {
       classnames = {},
       shouldCorrectNodesOutside = false,
       enableZooming = false,
+      useCtrlToZoom = false,
     } = {}
   ) {
     this._global = {
@@ -56,6 +57,7 @@ export default class TaxonomyVisualisation {
       fisheye,
       shouldCorrectNodesOutside,
       enableZooming,
+      useCtrlToZoom,
       classnames: Object.assign({}, DEFAULT_CLASSNAMES, classnames),
       scale: 1,
       margin: 20,

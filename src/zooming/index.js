@@ -33,6 +33,7 @@ export default (treeSelection, global) => {
     global.instance.redraw();
   };
   global._zoom = zoom()
+    .filter(() => !global.useCtrlToZoom || event.ctrlKey)
     .on('zoom', zooming)
     .scaleExtent([1, 5]);
 
