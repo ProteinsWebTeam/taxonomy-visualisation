@@ -33,7 +33,11 @@ export default (treeSelection, global) => {
     global.instance.redraw();
   };
   global._zoom = zoom()
-    .filter(() => !global.useCtrlToZoom || event.ctrlKey)
+    .filter(() => {
+      // WheelEvent is associated to Zooming. To allow panning, mouse events except WheelEvent should be allowed
+      if (!(event instanceof WheelEvent)) return true;
+      return !global.useCtrlToZoom || event.ctrlKey;
+    })
     .on('zoom', zooming)
     .scaleExtent([1, 5]);
 
