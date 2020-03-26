@@ -59,6 +59,7 @@
         Fisheye</label
       >
       <button id ="reset_zoom">Reset Zoom</button>
+      <input type="text" id="search-tree" placeholder="Search"/>
       <div id="focus-root"></div>
       <svg id="tree-root"></svg>
     </main>
@@ -69,6 +70,7 @@
           initialMaxNodes: 30,
           fisheye: true,
           enableZooming: true,
+          searchTerm: '',
         });
         // visualisation.data = data;
         visualisation.tree = document.getElementById('tree-root');
@@ -92,6 +94,11 @@
             visualisation.resetZoom();
           });
 
+        document
+                .getElementById('search-tree')
+                .addEventListener('change', e => {
+                  visualisation.searchTerm = e.target.value;
+                });
         // Other way to do it:
         // const visualisation = new SpeciesVisualisation(
         //   data,

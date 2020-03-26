@@ -43,6 +43,7 @@ export default class TaxonomyVisualisation {
       shouldCorrectNodesOutside = false,
       enableZooming = false,
       useCtrlToZoom = false,
+      searchTerm = '',
     } = {}
   ) {
     this._global = {
@@ -58,6 +59,7 @@ export default class TaxonomyVisualisation {
       shouldCorrectNodesOutside,
       enableZooming,
       useCtrlToZoom,
+      searchTerm,
       classnames: Object.assign({}, DEFAULT_CLASSNAMES, classnames),
       scale: 1,
       margin: 20,
@@ -282,6 +284,17 @@ export default class TaxonomyVisualisation {
 
   get fisheye() {
     return this._global.fisheye;
+  }
+
+  set searchTerm(value) {
+    if (this._global.searchTerm !== value) {
+      this._global.searchTerm = value;
+      this.redraw();
+    }
+  }
+
+  get searchTerm() {
+    return this._global.searchTerm;
   }
 
   _eventListenerCommon(type, fun) {

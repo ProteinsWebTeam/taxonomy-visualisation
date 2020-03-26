@@ -84,7 +84,16 @@ export default global => {
       }
     });
   // Label name
-  label.append('tspan').attr('class', global.classnames.name);
+  label
+    .append('tspan')
+    .attr('class', global.classnames.name)
+    .attr('fill', node => {
+      if (global.searchTerm) {
+        const name = node.data.name ? node.data.name.toLowerCase() : '';
+        if (name.startsWith(global.searchTerm.toLowerCase())) return '#8B0000';
+      }
+      return '#000000';
+    });
   // Label arrow
   label
     .append('tspan')
