@@ -138,6 +138,14 @@ export default global => {
       .attr('fill', colors.off);
   }
 
+  node.selectAll(`.${global.classnames.name}`).attr('fill', node => {
+    if (global.searchTerm) {
+      const name = node.data.name ? node.data.name.toLowerCase() : '';
+      if (name.startsWith(global.searchTerm.toLowerCase())) return '#8B0000';
+    }
+    return '#000000';
+  });
+
   // Node exit
   node.exit().remove();
 
