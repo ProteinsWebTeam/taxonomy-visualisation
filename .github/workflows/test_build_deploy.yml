@@ -16,7 +16,12 @@ jobs:
       - name: 🧪 - Test
         run: |
           npm run test
-          npm run coveralls
+      - name: 🧥‍ - Coveralls
+        uses: coverallsapp/github-action@master
+        continue-on-error: true
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: './reports/jest-coverage/lcov.info'
       - name: 🏗 - Build
         run: |
           npm run build
