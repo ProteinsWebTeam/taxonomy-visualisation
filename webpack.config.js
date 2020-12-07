@@ -48,7 +48,8 @@ module.exports = (env = { dev: true }) => {
           ? new HtmlWebpackPlugin({
               title: pkg.name,
               template: path.join(__dirname, 'example', 'index.template.html'),
-              inject: false,
+              scriptLoading: 'defer',
+              chunks: ['main'],
             })
           : null,
         env.dev
@@ -59,10 +60,11 @@ module.exports = (env = { dev: true }) => {
                 'index_ce.template.html'
               ),
               filename: 'index_ce.html',
-              inject: false,
+              scriptLoading: 'defer',
+              chunks: ['ce'],
             })
           : null,
-      ].filter(x => x),
+      ].filter((x) => x),
       performance: {
         hints: env.production && !env.debug ? 'error' : false,
       },
