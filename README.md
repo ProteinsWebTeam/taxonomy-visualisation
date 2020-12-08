@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ProteinsWebTeam/taxonomy-visualisation.svg?branch=master)](https://travis-ci.org/ProteinsWebTeam/taxonomy-visualisation)
+[![Build Status](https://github.com/ProteinsWebTeam/taxonomy-visualisation/workflows/Test%20Build%20and%20Deploy/badge.svg)](https://github.com/ProteinsWebTeam/taxonomy-visualisation/actions?query=workflow%3A%22Test+Build+and+Deploy%22)
 [![npm version](https://badge.fury.io/js/taxonomy-visualisation.svg)](https://www.npmjs.com/package/taxonomy-visualisation)
 [![Coverage Status](https://coveralls.io/repos/github/ProteinsWebTeam/taxonomy-visualisation/badge.svg?branch=master)](https://coveralls.io/github/ProteinsWebTeam/taxonomy-visualisation?branch=master)
 
@@ -29,7 +29,10 @@ import TaxonomyVisualisation from 'taxonomy-visualisation';
 #### Using a global script tag (legacy approach)
 
 ```html
-<script async src="<path_to_library>/dist/taxonomy-visualisation-main.js"></script>
+<script
+  async
+  src="<path_to_library>/dist/taxonomy-visualisation-main.js"
+></script>
 ```
 
 Or using unpkg CDN (not recommend for production), see usage
@@ -73,11 +76,11 @@ visualisation.tree = document.getElementById('tree-root');
 visualisation.focus = document.getElementById('focus-root');
 
 // Hook up the events emitted by the instance to some custom logic
-visualisation.addEventListener('focus', event => {
+visualisation.addEventListener('focus', (event) => {
   console.log('custom focus event', event.detail);
 });
 
-visualisation.focus.addEventListener('click', event =>
+visualisation.focus.addEventListener('click', (event) =>
   console.log(visualisation.getDataFromEvent(event))
 );
 ```
@@ -133,11 +136,11 @@ const visualisation = new TaxonomyVisualisation(data, options);
 
 ```flow js
 type Node = {
-  id: string | number,// unique in the whole tree (tax id)
-  name: string,// name displayed
+  id: string | number, // unique in the whole tree (tax id)
+  name: string, // name displayed
   children?: Array<Node>,
-  hitdist?: Array<number>,// distribution of hits
-  hitcount?: number,// number of hits
+  hitdist?: Array<number>, // distribution of hits
+  hitcount?: number, // number of hits
 };
 ```
 
@@ -291,14 +294,20 @@ import TaxonomyVisualisationElement, {
 #### Using a global script tag
 
 ```html
-<script async src="<path_to_library>/dist/taxonomy-visualisation-ce.js"></script>
+<script
+  async
+  src="<path_to_library>/dist/taxonomy-visualisation-ce.js"
+></script>
 ```
 
 Or using unpkg CDN (not recommend for production), see usage
 [here](https://unpkg.com/)
 
 ```html
-<script async src="https://unpkg.com/taxonomy-visualisation/dist/taxonomy-visualisation-ce.js"></script>
+<script
+  async
+  src="https://unpkg.com/taxonomy-visualisation/dist/taxonomy-visualisation-ce.js"
+></script>
 ```
 
 If D3 is already present in your page, you can use the
@@ -331,7 +340,7 @@ could be like this:
 const visualisation = (document.querySelector('#tree-root').data = data);
 
 // Hook up the events emitted by the instance to some custom logic
-visualisation.addEventListener('focus', event => {
+visualisation.addEventListener('focus', (event) => {
   console.log('custom focus event', event.detail);
 });
 ```
@@ -368,7 +377,7 @@ Additionally, a named export make the `TaxonomyVisualisation` class available. S
 A minimum syntax could be:
 
 ```html
-<taxonomy-visualisation>
+<taxonomy-visualisation></taxonomy-visualisation>
 ```
 
 and that's it.
