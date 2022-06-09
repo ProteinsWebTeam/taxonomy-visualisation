@@ -3,7 +3,7 @@ import { max, tree as d3Tree, select } from 'd3';
 // extending d3's defaults
 import hierarchy from '../hierarchy';
 
-import { updateFocusSize, updateTreeSize } from '../update-size';
+import { updateFocusSize, updateTreeSize, updateWidth } from '../update-size';
 import addZoominPanning, { resetZooming } from '../zooming';
 import collapse from '../collapse';
 import focus from '../focus';
@@ -72,6 +72,21 @@ export default class TaxonomyVisualisation {
     this.data = data;
     this.tree = tree;
     this.focus = focus;
+
+    // Observer for a direct change in the width attibute of the svg
+    this.observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === 'attributes' &&
+          mutation.attributeName === 'width' &&
+          this._global?.selection?.tree
+        ) {
+          const width = Number(mutation.target.getAttribute('width'));
+          updateWidth(width, this._global);
+          this.redraw();
+        }
+      });
+    });
 
     // bind methods to this instance
     // private
@@ -173,7 +188,7 @@ export default class TaxonomyVisualisation {
       this._global.root.data.hitdist &&
       this._global.root.data.hitdist.length
     ) {
-      this._global.maxCountBin = max(this._global.all, node =>
+      this._global.maxCountBin = max(this._global.all, (node) =>
         max(node.data.hitdist)
       );
       this._global.nBins = this._global.root.data.hitdist.length;
@@ -208,6 +223,7 @@ export default class TaxonomyVisualisation {
       this.redraw();
     });
 
+    this.observer.observe(element, { attributes: true });
     if (this._global.enableZooming)
       addZoominPanning(this._global.selection.tree, this._global);
 
@@ -240,11 +256,7 @@ export default class TaxonomyVisualisation {
       .append('div')
       .attr('class', 'desc')
       .style('display', 'inline-block');
-    desc
-      .append('p')
-      .attr('class', 'lineage')
-      .append('span')
-      .text('Lineage:');
+    desc.append('p').attr('class', 'lineage').append('span').text('Lineage:');
     desc.append('p').attr('class', 'name');
     // Histogram
     root
@@ -306,7 +318,7 @@ export default class TaxonomyVisualisation {
 
   focusNodeWithID(id) {
     // Try to find the node with the corresponding ID
-    const toBeFocused = this._global.all.find(node => node.data.id === id);
+    const toBeFocused = this._global.all.find((node) => node.data.id === id);
     // Just returns without doing anything if didn't find
     if (!toBeFocused) return;
     // Set focus to found node
@@ -327,6 +339,7 @@ export default class TaxonomyVisualisation {
   cleanup() {
     for (const [, listeners] of this._listenersPerType) listeners.clear();
     this._listenersPerType.clear();
+    this.observer.disconnect();
     // remove references
     this._global.instance = null;
   }
