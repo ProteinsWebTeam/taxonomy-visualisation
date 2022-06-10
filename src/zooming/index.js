@@ -10,9 +10,9 @@ export default (treeSelection, global) => {
 
   const zooming = (event) => {
     const { width, height } = treeSelection.node().getBoundingClientRect();
-    if (event) {
-      if (event.movementX) tmpX += event.movementX;
-      if (event.movementY) tmpY += event.movementY;
+    if (event.sourceEvent) {
+      if (event.sourceEvent.movementX) tmpX += event.sourceEvent.movementX;
+      if (event.sourceEvent.movementY) tmpY += event.sourceEvent.movementY;
     } else {
       // If the sourceEvent is null we assume the reset has been triggered.
       tmpX = global.margin;
@@ -33,7 +33,7 @@ export default (treeSelection, global) => {
     global.instance.redraw();
   };
   global._zoom = zoom()
-    .filter(() => {
+    .filter((event) => {
       // WheelEvent is associated to Zooming. To allow panning, mouse events except WheelEvent should be allowed
       if (!(event instanceof WheelEvent)) return true;
       return !global.useCtrlToZoom || event.ctrlKey;
