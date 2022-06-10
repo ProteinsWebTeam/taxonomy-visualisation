@@ -1,9 +1,7 @@
-import { event } from 'd3';
-
 import collapse from '../collapse';
 import focus from '../focus';
 
-export default (global, node) => {
+export default (global, event, node) => {
   try {
     event.stopPropagation();
   } catch (_) {}

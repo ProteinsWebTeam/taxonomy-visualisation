@@ -1,9 +1,9 @@
-import { linkHorizontal } from 'd3';
+import { linkHorizontal } from 'd3-shape';
 import cn from 'classnames';
 
 import { colors } from '../../theme';
 
-export default global => {
+export default (global) => {
   // Each link
   const link = global.selection.tree
     .selectAll(`.${global.classnames.link}`)

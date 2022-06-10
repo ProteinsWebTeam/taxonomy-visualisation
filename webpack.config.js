@@ -1,7 +1,7 @@
 /* eslint-env node */
 const path = require('path');
 
-const webpack = require('webpack');
+// const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const pkg = require(path.resolve(__dirname, 'package.json'));
@@ -39,16 +39,10 @@ module.exports = (env = { dev: true }) => {
         libraryExport: 'default',
       },
       plugins: [
-        env.production
-          ? new webpack.optimize.ModuleConcatenationPlugin()
-          : null,
-        env.production ? webpack.optimize.minimize : null,
-        env.dev ? new webpack.HotModuleReplacementPlugin() : null,
         env.dev
           ? new HtmlWebpackPlugin({
               title: pkg.name,
               template: path.join(__dirname, 'example', 'index.template.html'),
-              scriptLoading: 'defer',
               chunks: ['main'],
             })
           : null,
@@ -60,7 +54,6 @@ module.exports = (env = { dev: true }) => {
                 'index_ce.template.html'
               ),
               filename: 'index_ce.html',
-              scriptLoading: 'defer',
               chunks: ['ce'],
             })
           : null,
@@ -68,7 +61,7 @@ module.exports = (env = { dev: true }) => {
       performance: {
         hints: env.production && !env.debug ? 'error' : false,
       },
-      devtool: env.dev ? '#inline-source-map' : '#source-map',
+      devtool: env.dev ? 'cheap-module-source-map' : 'source-map',
     },
     defaultConfig
   );
@@ -77,11 +70,16 @@ module.exports = (env = { dev: true }) => {
     return Object.assign(
       {
         devServer: {
-          overlay: true,
           hot: true,
-          watchOptions: {
-            ignored: /node_modules/,
+          static: {
+            directory: path.join(__dirname),
+            watch: {
+              ignored: /node_modules/,
+            },
           },
+        },
+        watchOptions: {
+          ignored: /node_modules/,
         },
       },
       configWithEnv
@@ -98,7 +96,14 @@ module.exports = (env = { dev: true }) => {
           '-without-d3.js'
         ),
       }),
-      externals: { d3: 'd3' },
+      externals: {
+        'd3-array': 'd3-array',
+        'd3-ease': 'd3-ease',
+        'd3-hierarchy': 'd3-hierarchy',
+        'd3-selection': 'd3-selection',
+        'd3-shape': 'd3-shape',
+        'd3-zoom': 'd3-zoom',
+      },
     }),
   ];
 };

@@ -5,7 +5,7 @@ import focus from '../../focus';
 
 import { colors } from '../../theme';
 
-export default global => {
+export default (global) => {
   const descendants = global.root.descendants();
   // Each node
   const node = global.selection.tree
@@ -19,8 +19,8 @@ export default global => {
     .attr('opacity', 0)
     .attr('transform', ({ x, y }) => `translate(${y},${x})`)
     // Event listeners
-    .on('dblclick', n => {
-      toggle(global, n);
+    .on('dblclick', (event, n) => {
+      toggle(global, event, n);
       global.instance.redraw();
     });
   // Node enter + update
@@ -35,7 +35,7 @@ export default global => {
     .style('cursor', 'pointer')
     .transition()
     .attr('opacity', 1)
-    .attr('transform', d => `translate(${d.y},${d.x})`);
+    .attr('transform', (d) => `translate(${d.y},${d.x})`);
 
   // Node circle
   nodeEnter
@@ -48,7 +48,7 @@ export default global => {
         : global.fixedNodeSize
     )
     .attr('fill', colors.off)
-    .on('click', n => {
+    .on('click', (_event, n) => {
       try {
         // Making sure is the same reference
         const tmpNode = global.root
@@ -75,7 +75,7 @@ export default global => {
       'text-shadow',
       '0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff'
     )
-    .on('click', node => {
+    .on('click', (_event, node) => {
       // Emit event from the instance registrations
       for (const listeners of global.instance._listenersPerType
         .get('click')
@@ -87,7 +87,7 @@ export default global => {
   label
     .append('tspan')
     .attr('class', global.classnames.name)
-    .attr('fill', node => {
+    .attr('fill', (node) => {
       if (global.searchTerm) {
         const name = node.data.name ? node.data.name.toLowerCase() : '';
         if (name.startsWith(global.searchTerm.toLowerCase())) return '#8B0000';
@@ -98,8 +98,8 @@ export default global => {
   label
     .append('tspan')
     .attr('class', global.classnames.arrow)
-    .on('click', node => {
-      toggle(global, node);
+    .on('click', (event, node) => {
+      toggle(global, event, node);
       global.instance.redraw();
     });
 
@@ -134,11 +134,11 @@ export default global => {
       .attr('y', -20)
       .attr('width', 2)
       // .attr('height', ({ bin }) => bin * 10 / global.maxCountBin)
-      .attr('height', bin => (bin * 10) / global.maxCountBin)
+      .attr('height', (bin) => (bin * 10) / global.maxCountBin)
       .attr('fill', colors.off);
   }
 
-  node.selectAll(`.${global.classnames.name}`).attr('fill', node => {
+  node.selectAll(`.${global.classnames.name}`).attr('fill', (node) => {
     if (global.searchTerm) {
       const name = node.data.name ? node.data.name.toLowerCase() : '';
       if (name.startsWith(global.searchTerm.toLowerCase())) return '#8B0000';

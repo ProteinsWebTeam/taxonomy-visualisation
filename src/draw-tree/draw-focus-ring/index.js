@@ -1,4 +1,4 @@
-import { easeElastic } from 'd3';
+import { easeElastic } from 'd3-ease';
 
 import { colors } from '../../theme';
 

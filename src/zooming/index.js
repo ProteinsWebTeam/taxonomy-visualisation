@@ -1,4 +1,4 @@
-import { zoom, event, zoomIdentity } from 'd3';
+import { zoom, zoomIdentity } from 'd3-zoom';
 
 export const resetZooming = (treeSelection, global) => {
   treeSelection.call(global._zoom.transform, zoomIdentity);
@@ -8,7 +8,7 @@ export default (treeSelection, global) => {
   let tmpX = global.margin;
   let tmpY = 0;
 
-  const zooming = () => {
+  const zooming = (event) => {
     const { width, height } = treeSelection.node().getBoundingClientRect();
     if (event.sourceEvent) {
       if (event.sourceEvent.movementX) tmpX += event.sourceEvent.movementX;
@@ -33,7 +33,7 @@ export default (treeSelection, global) => {
     global.instance.redraw();
   };
   global._zoom = zoom()
-    .filter(() => {
+    .filter((event) => {
       // WheelEvent is associated to Zooming. To allow panning, mouse events except WheelEvent should be allowed
       if (!(event instanceof WheelEvent)) return true;
       return !global.useCtrlToZoom || event.ctrlKey;
