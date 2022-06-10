@@ -1,6 +1,6 @@
-import { hierarchy } from 'd3';
+import { hierarchy } from 'd3-hierarchy';
 
-hierarchy.prototype.sibling = function(offset) {
+hierarchy.prototype.sibling = function (offset) {
   const parent = this.parent;
   if (!parent) return null;
   const siblings = parent.children;

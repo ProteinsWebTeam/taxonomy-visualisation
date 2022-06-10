@@ -1,4 +1,6 @@
-import { max, tree as d3Tree, select } from 'd3';
+import { max } from 'd3-array';
+import { tree as d3Tree } from 'd3-hierarchy';
+import { select } from 'd3-selection';
 
 // extending d3's defaults
 import hierarchy from '../hierarchy';
@@ -125,7 +127,7 @@ export default class TaxonomyVisualisation {
         e.preventDefault();
         // If collapsed, open
         if (this._global.focused._children) {
-          toggle(this._global, this._global.focused);
+          toggle(this._global, e, this._global.focused);
         }
         // Focus first child
         focus(
@@ -136,7 +138,7 @@ export default class TaxonomyVisualisation {
         break;
       case 'Enter':
         e.preventDefault();
-        toggle(this._global, this._global.focused);
+        toggle(this._global, e, this._global.focused);
         this.redraw();
         break;
       default:

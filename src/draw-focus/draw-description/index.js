@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import focus from '../../focus';
 
-export default global => {
+export default (global) => {
   const { selection, focused } = global;
   const lineage = selection.focus.select('.lineage');
   const ancestors = lineage
@@ -11,7 +11,7 @@ export default global => {
   ancestors
     .enter()
     .append('a')
-    .on('click', node => {
+    .on('click', (_event, node) => {
       focus(global, node);
       global.instance.redraw();
     })
@@ -19,7 +19,7 @@ export default global => {
     .attr('class', ({ focused }) =>
       cn(global.classnames.ancestor, { [global.classnames.focused]: focused })
     )
-    .text(node => ` → ${node.data.name}`);
+    .text((node) => ` → ${node.data.name}`);
   ancestors.exit().remove();
 
   const name = selection.focus

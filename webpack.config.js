@@ -96,7 +96,14 @@ module.exports = (env = { dev: true }) => {
           '-without-d3.js'
         ),
       }),
-      externals: { d3: 'd3' },
+      externals: {
+        'd3-array': 'd3-array',
+        'd3-ease': 'd3-ease',
+        'd3-hierarchy': 'd3-hierarchy',
+        'd3-selection': 'd3-selection',
+        'd3-shape': 'd3-shape',
+        'd3-zoom': 'd3-zoom',
+      },
     }),
   ];
 };
