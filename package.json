@@ -87,7 +87,7 @@
     "babel-loader": "8.2.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "coveralls": "3.1.0",
-    "d3": "5.16.0",
+    "d3": "7.6.1",
     "eslint": "7.15.0",
     "eslint-config-prettier": "7.0.0",
     "html-webpack-plugin": "4.5.0",
